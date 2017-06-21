@@ -1,0 +1,1251 @@
+<!--
+██╗  ██╗██╗    ████████╗██╗  ██╗███████╗██████╗ ███████╗██╗
+██║  ██║██║    ╚══██╔══╝██║  ██║██╔════╝██╔══██╗██╔════╝██║
+███████║██║       ██║   ███████║█████╗  ██████╔╝█████╗  ██║
+██╔══██║██║       ██║   ██╔══██║██╔══╝  ██╔══██╗██╔══╝  ╚═╝
+██║  ██║██║       ██║   ██║  ██║███████╗██║  ██║███████╗██╗
+╚═╝  ╚═╝╚═╝       ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚══════╝╚═╝
+
+
+
+
+
+██╗    ██╗███████╗██╗      ██████╗ ██████╗ ███╗   ███╗███████╗    ████████╗ ██████╗     ████████╗██╗  ██╗███████╗
+██║    ██║██╔════╝██║     ██╔════╝██╔═══██╗████╗ ████║██╔════╝    ╚══██╔══╝██╔═══██╗    ╚══██╔══╝██║  ██║██╔════╝
+██║ █╗ ██║█████╗  ██║     ██║     ██║   ██║██╔████╔██║█████╗         ██║   ██║   ██║       ██║   ███████║█████╗  
+██║███╗██║██╔══╝  ██║     ██║     ██║   ██║██║╚██╔╝██║██╔══╝         ██║   ██║   ██║       ██║   ██╔══██║██╔══╝  
+╚███╔███╔╝███████╗███████╗╚██████╗╚██████╔╝██║ ╚═╝ ██║███████╗       ██║   ╚██████╔╝       ██║   ██║  ██║███████╗
+ ╚══╝╚══╝ ╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝       ╚═╝    ╚═════╝        ╚═╝   ╚═╝  ╚═╝╚══════╝
+
+███████╗ ██████╗ ██╗   ██╗██████╗  ██████╗███████╗     ██████╗ ██████╗ ██████╗ ███████╗██╗
+██╔════╝██╔═══██╗██║   ██║██╔══██╗██╔════╝██╔════╝    ██╔════╝██╔═══██╗██╔══██╗██╔════╝██║
+███████╗██║   ██║██║   ██║██████╔╝██║     █████╗      ██║     ██║   ██║██║  ██║█████╗  ██║
+╚════██║██║   ██║██║   ██║██╔══██╗██║     ██╔══╝      ██║     ██║   ██║██║  ██║██╔══╝  ╚═╝
+███████║╚██████╔╝╚██████╔╝██║  ██║╚██████╗███████╗    ╚██████╗╚██████╔╝██████╔╝███████╗██╗
+╚══════╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝ ╚═════╝╚══════╝     ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝╚═╝
+
+
+
+
+
+███╗   ███╗██╗   ██╗    ███╗   ██╗ █████╗ ███╗   ███╗███████╗    ██╗███████╗
+████╗ ████║╚██╗ ██╔╝    ████╗  ██║██╔══██╗████╗ ████║██╔════╝    ██║██╔════╝
+██╔████╔██║ ╚████╔╝     ██╔██╗ ██║███████║██╔████╔██║█████╗      ██║███████╗
+██║╚██╔╝██║  ╚██╔╝      ██║╚██╗██║██╔══██║██║╚██╔╝██║██╔══╝      ██║╚════██║
+██║ ╚═╝ ██║   ██║       ██║ ╚████║██║  ██║██║ ╚═╝ ██║███████╗    ██║███████║
+╚═╝     ╚═╝   ╚═╝       ╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝    ╚═╝╚══════╝
+
+ ██████╗  ██████╗ ██████╗ ██████╗  ██████╗ ███╗   ██╗    ███████╗████████╗███████╗██╗   ██╗███████╗███╗   ██╗███████╗
+██╔════╝ ██╔═══██╗██╔══██╗██╔══██╗██╔═══██╗████╗  ██║    ██╔════╝╚══██╔══╝██╔════╝██║   ██║██╔════╝████╗  ██║██╔════╝
+██║  ███╗██║   ██║██████╔╝██║  ██║██║   ██║██╔██╗ ██║    ███████╗   ██║   █████╗  ██║   ██║█████╗  ██╔██╗ ██║███████╗
+██║   ██║██║   ██║██╔══██╗██║  ██║██║   ██║██║╚██╗██║    ╚════██║   ██║   ██╔══╝  ╚██╗ ██╔╝██╔══╝  ██║╚██╗██║╚════██║
+╚██████╔╝╚██████╔╝██║  ██║██████╔╝╚██████╔╝██║ ╚████║    ███████║   ██║   ███████╗ ╚████╔╝ ███████╗██║ ╚████║███████║
+ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═══╝    ╚══════╝   ╚═╝   ╚══════╝  ╚═══╝  ╚══════╝╚═╝  ╚═══╝╚══════╝
+
+
+
+
+
+███╗   ███╗██╗   ██╗    ███████╗    ███╗   ███╗ █████╗ ██╗██╗         ██╗███████╗
+████╗ ████║╚██╗ ██╔╝    ██╔════╝    ████╗ ████║██╔══██╗██║██║         ██║██╔════╝
+██╔████╔██║ ╚████╔╝     █████╗█████╗██╔████╔██║███████║██║██║         ██║███████╗
+██║╚██╔╝██║  ╚██╔╝      ██╔══╝╚════╝██║╚██╔╝██║██╔══██║██║██║         ██║╚════██║
+██║ ╚═╝ ██║   ██║       ███████╗    ██║ ╚═╝ ██║██║  ██║██║███████╗    ██║███████║
+╚═╝     ╚═╝   ╚═╝       ╚══════╝    ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝╚══════╝    ╚═╝╚══════╝
+
+ ██████╗  ██████╗ ██████╗ ██████╗  ██████╗ ███╗   ██╗     ██████╗ 
+██╔════╝ ██╔═══██╗██╔══██╗██╔══██╗██╔═══██╗████╗  ██║    ██╔═══██╗
+██║  ███╗██║   ██║██████╔╝██║  ██║██║   ██║██╔██╗ ██║    ██║██╗██║
+██║   ██║██║   ██║██╔══██╗██║  ██║██║   ██║██║╚██╗██║    ██║██║██║
+╚██████╔╝╚██████╔╝██║  ██║██████╔╝╚██████╔╝██║ ╚████║    ╚█║████╔╝
+ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═══╝     ╚╝╚═══╝ 
+                                                                  
+ ██████╗  ██████╗ ██████╗ ██████╗  ██████╗ ███╗   ██╗███████╗████████╗███████╗██╗   ██╗███████╗███╗   ██╗███████╗
+██╔════╝ ██╔═══██╗██╔══██╗██╔══██╗██╔═══██╗████╗  ██║██╔════╝╚══██╔══╝██╔════╝██║   ██║██╔════╝████╗  ██║██╔════╝
+██║  ███╗██║   ██║██████╔╝██║  ██║██║   ██║██╔██╗ ██║███████╗   ██║   █████╗  ██║   ██║█████╗  ██╔██╗ ██║███████╗
+██║   ██║██║   ██║██╔══██╗██║  ██║██║   ██║██║╚██╗██║╚════██║   ██║   ██╔══╝  ╚██╗ ██╔╝██╔══╝  ██║╚██╗██║╚════██║
+╚██████╔╝╚██████╔╝██║  ██║██████╔╝╚██████╔╝██║ ╚████║███████║   ██║   ███████╗ ╚████╔╝ ███████╗██║ ╚████║███████║
+ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═══╝╚══════╝   ╚═╝   ╚══════╝  ╚═══╝  ╚══════╝╚═╝  ╚═══╝╚══════╝
+                                                                                                                
+    ██████╗ █████╗ 
+   ██╔════╝██╔══██╗
+   ██║     ███████║
+   ██║     ██╔══██║
+██╗╚██████╗██║  ██║
+╚═╝ ╚═════╝╚═╝  ╚═╝
+
+
+
+
+
+██╗  ██╗ ██████╗ ██╗    ██╗
+██║  ██║██╔═══██╗██║    ██║
+███████║██║   ██║██║ █╗ ██║
+██╔══██║██║   ██║██║███╗██║
+██║  ██║╚██████╔╝╚███╔███╔╝
+╚═╝  ╚═╝ ╚═════╝  ╚══╝╚══╝ 
+                           
+██████╗  ██████╗ 
+██╔══██╗██╔═══██╗
+██║  ██║██║   ██║
+██║  ██║██║   ██║
+██████╔╝╚██████╔╝
+╚═════╝  ╚═════╝ 
+                 
+██╗   ██╗ ██████╗ ██╗   ██╗
+╚██╗ ██╔╝██╔═══██╗██║   ██║
+ ╚████╔╝ ██║   ██║██║   ██║
+  ╚██╔╝  ██║   ██║██║   ██║
+   ██║   ╚██████╔╝╚██████╔╝
+   ╚═╝    ╚═════╝  ╚═════╝ 
+                          
+██╗     ██╗██╗  ██╗███████╗
+██║     ██║██║ ██╔╝██╔════╝
+██║     ██║█████╔╝ █████╗  
+██║     ██║██╔═██╗ ██╔══╝  
+███████╗██║██║  ██╗███████╗
+╚══════╝╚═╝╚═╝  ╚═╝╚══════╝
+                         
+███╗   ███╗██╗   ██╗
+████╗ ████║╚██╗ ██╔╝
+██╔████╔██║ ╚████╔╝ 
+██║╚██╔╝██║  ╚██╔╝  
+██║ ╚═╝ ██║   ██║   
+╚═╝     ╚═╝   ╚═╝   
+
+███╗   ██╗███████╗██╗    ██╗
+████╗  ██║██╔════╝██║    ██║
+██╔██╗ ██║█████╗  ██║ █╗ ██║
+██║╚██╗██║██╔══╝  ██║███╗██║
+██║ ╚████║███████╗╚███╔███╔╝
+╚═╝  ╚═══╝╚══════╝ ╚══╝╚══╝ 
+                            
+██╗      █████╗ ██╗   ██╗ ██████╗ ██╗   ██╗████████╗
+██║     ██╔══██╗╚██╗ ██╔╝██╔═══██╗██║   ██║╚══██╔══╝
+██║     ███████║ ╚████╔╝ ██║   ██║██║   ██║   ██║   
+██║     ██╔══██║  ╚██╔╝  ██║   ██║██║   ██║   ██║   
+███████╗██║  ██║   ██║   ╚██████╔╝╚██████╔╝   ██║   
+╚══════╝╚═╝  ╚═╝   ╚═╝    ╚═════╝  ╚═════╝    ╚═╝   
+
+███████╗██╗  ██╗██████╗ 
+██╔════╝██║  ██║╚════██╗
+█████╗  ███████║  ▄███╔╝
+██╔══╝  ██╔══██║  ▀▀══╝ 
+███████╗██║  ██║  ██╗   
+╚══════╝╚═╝  ╚═╝  ╚═╝   
+                        
+
+
+
+
+██╗     ███████╗████████╗
+██║     ██╔════╝╚══██╔══╝
+██║     █████╗     ██║   
+██║     ██╔══╝     ██║   
+███████╗███████╗   ██║   
+╚══════╝╚══════╝   ╚═╝   
+
+███╗   ███╗███████╗
+████╗ ████║██╔════╝
+██╔████╔██║█████╗  
+██║╚██╔╝██║██╔══╝  
+██║ ╚═╝ ██║███████╗
+╚═╝     ╚═╝╚══════╝
+
+██╗  ██╗███╗   ██╗ ██████╗ ██╗    ██╗
+██║ ██╔╝████╗  ██║██╔═══██╗██║    ██║
+█████╔╝ ██╔██╗ ██║██║   ██║██║ █╗ ██║
+██╔═██╗ ██║╚██╗██║██║   ██║██║███╗██║
+██║  ██╗██║ ╚████║╚██████╔╝╚███╔███╔╝
+╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝  ╚══╝╚══╝ 
+
+██╗███╗   ██╗
+██║████╗  ██║
+██║██╔██╗ ██║
+██║██║╚██╗██║
+██║██║ ╚████║
+╚═╝╚═╝  ╚═══╝
+
+███████╗    ███╗   ███╗ █████╗ ██╗██╗     
+██╔════╝    ████╗ ████║██╔══██╗██║██║     
+█████╗█████╗██╔████╔██║███████║██║██║     
+██╔══╝╚════╝██║╚██╔╝██║██╔══██║██║██║     
+███████╗    ██║ ╚═╝ ██║██║  ██║██║███████╗
+╚══════╝    ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝╚══════╝
+
+██████╗ ██╗     ███████╗ █████╗ ███████╗███████╗██╗       ██████╗ 
+██╔══██╗██║     ██╔════╝██╔══██╗██╔════╝██╔════╝██║    ██╗██╔══██╗
+██████╔╝██║     █████╗  ███████║███████╗█████╗  ██║    ╚═╝██║  ██║
+██╔═══╝ ██║     ██╔══╝  ██╔══██║╚════██║██╔══╝  ╚═╝    ██╗██║  ██║
+██║     ███████╗███████╗██║  ██║███████║███████╗██╗    ╚═╝██████╔╝
+╚═╝     ╚══════╝╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝       ╚═════╝ 
+
+
+
+
+
+████████╗███████╗███████╗████████╗███████╗██████╗ 
+╚══██╔══╝██╔════╝██╔════╝╚══██╔══╝██╔════╝██╔══██╗
+   ██║   █████╗  ███████╗   ██║   █████╗  ██║  ██║
+   ██║   ██╔══╝  ╚════██║   ██║   ██╔══╝  ██║  ██║
+   ██║   ███████╗███████║   ██║   ███████╗██████╔╝
+   ╚═╝   ╚══════╝╚══════╝   ╚═╝   ╚══════╝╚═════╝ 
+                                                  
+ ██████╗ ███╗   ██╗
+██╔═══██╗████╗  ██║
+██║   ██║██╔██╗ ██║
+██║   ██║██║╚██╗██║
+╚██████╔╝██║ ╚████║
+ ╚═════╝ ╚═╝  ╚═══╝
+
+████████╗██╗  ██╗███████╗
+╚══██╔══╝██║  ██║██╔════╝
+   ██║   ███████║█████╗  
+   ██║   ██╔══██║██╔══╝  
+   ██║   ██║  ██║███████╗
+   ╚═╝   ╚═╝  ╚═╝╚══════╝
+
+███████╗ ██████╗ ██╗     ██╗      ██████╗ ██╗    ██╗██╗███╗   ██╗ ██████╗ 
+██╔════╝██╔═══██╗██║     ██║     ██╔═══██╗██║    ██║██║████╗  ██║██╔════╝ 
+█████╗  ██║   ██║██║     ██║     ██║   ██║██║ █╗ ██║██║██╔██╗ ██║██║  ███╗
+██╔══╝  ██║   ██║██║     ██║     ██║   ██║██║███╗██║██║██║╚██╗██║██║   ██║
+██║     ╚██████╔╝███████╗███████╗╚██████╔╝╚███╔███╔╝██║██║ ╚████║╚██████╔╝
+╚═╝      ╚═════╝ ╚══════╝╚══════╝ ╚═════╝  ╚══╝╚══╝ ╚═╝╚═╝  ╚═══╝ ╚═════╝ 
+
+██╗███╗   ██╗████████╗███████╗██████╗ ███╗   ██╗███████╗████████╗
+██║████╗  ██║╚══██╔══╝██╔════╝██╔══██╗████╗  ██║██╔════╝╚══██╔══╝
+██║██╔██╗ ██║   ██║   █████╗  ██████╔╝██╔██╗ ██║█████╗     ██║   
+██║██║╚██╗██║   ██║   ██╔══╝  ██╔══██╗██║╚██╗██║██╔══╝     ██║   
+██║██║ ╚████║   ██║   ███████╗██║  ██║██║ ╚████║███████╗   ██║   
+╚═╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝   ╚═╝   
+
+██╗    ██╗███████╗██████╗ 
+██║    ██║██╔════╝██╔══██╗
+██║ █╗ ██║█████╗  ██████╔╝
+██║███╗██║██╔══╝  ██╔══██╗
+╚███╔███╔╝███████╗██████╔╝
+ ╚══╝╚══╝ ╚══════╝╚═════╝ 
+
+██████╗ ██████╗  ██████╗ ██╗    ██╗███████╗███████╗██████╗ 
+██╔══██╗██╔══██╗██╔═══██╗██║    ██║██╔════╝██╔════╝██╔══██╗
+██████╔╝██████╔╝██║   ██║██║ █╗ ██║███████╗█████╗  ██████╔╝
+██╔══██╗██╔══██╗██║   ██║██║███╗██║╚════██║██╔══╝  ██╔══██╗
+██████╔╝██║  ██║╚██████╔╝╚███╔███╔╝███████║███████╗██║  ██║
+╚═════╝ ╚═╝  ╚═╝ ╚═════╝  ╚══╝╚══╝ ╚══════╝╚══════╝╚═╝  ╚═╝
+
+███████╗ ██████╗ ███████╗████████╗██╗    ██╗ █████╗ ██████╗ ███████╗   
+██╔════╝██╔═══██╗██╔════╝╚══██╔══╝██║    ██║██╔══██╗██╔══██╗██╔════╝██╗
+███████╗██║   ██║█████╗     ██║   ██║ █╗ ██║███████║██████╔╝█████╗  ╚═╝
+╚════██║██║   ██║██╔══╝     ██║   ██║███╗██║██╔══██║██╔══██╗██╔══╝  ██╗
+███████║╚██████╔╝██║        ██║   ╚███╔███╔╝██║  ██║██║  ██║███████╗╚═╝
+╚══════╝ ╚═════╝ ╚═╝        ╚═╝    ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝   
+
+
+
+ ██████╗██╗  ██╗██████╗  ██████╗ ███╗   ███╗███████╗    ███████╗ █████╗ 
+██╔════╝██║  ██║██╔══██╗██╔═══██╗████╗ ████║██╔════╝    ██╔════╝██╔══██╗
+██║     ███████║██████╔╝██║   ██║██╔████╔██║█████╗      ███████╗╚██████║
+██║     ██╔══██║██╔══██╗██║   ██║██║╚██╔╝██║██╔══╝      ╚════██║ ╚═══██║
+╚██████╗██║  ██║██║  ██║╚██████╔╝██║ ╚═╝ ██║███████╗    ███████║ █████╔╝
+ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝    ╚══════╝ ╚════╝ 
+
+ ██████╗██╗  ██╗██████╗  ██████╗ ███╗   ███╗██╗██╗   ██╗███╗   ███╗
+██╔════╝██║  ██║██╔══██╗██╔═══██╗████╗ ████║██║██║   ██║████╗ ████║
+██║     ███████║██████╔╝██║   ██║██╔████╔██║██║██║   ██║██╔████╔██║
+██║     ██╔══██║██╔══██╗██║   ██║██║╚██╔╝██║██║██║   ██║██║╚██╔╝██║
+╚██████╗██║  ██║██║  ██║╚██████╔╝██║ ╚═╝ ██║██║╚██████╔╝██║ ╚═╝ ██║
+ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝╚═╝ ╚═════╝ ╚═╝     ╚═╝
+                                                                   
+███████╗██╗██████╗ ███████╗███████╗ ██████╗ ██╗  ██╗    ██╗  ██╗ █████╗ 
+██╔════╝██║██╔══██╗██╔════╝██╔════╝██╔═══██╗╚██╗██╔╝    ██║  ██║██╔══██╗
+█████╗  ██║██████╔╝█████╗  █████╗  ██║   ██║ ╚███╔╝     ███████║╚█████╔╝
+██╔══╝  ██║██╔══██╗██╔══╝  ██╔══╝  ██║   ██║ ██╔██╗     ╚════██║██╔══██╗
+██║     ██║██║  ██║███████╗██║     ╚██████╔╝██╔╝ ██╗         ██║╚█████╔╝
+╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝╚═╝      ╚═════╝ ╚═╝  ╚═╝         ╚═╝ ╚════╝ 
+
+███████╗██╗  ██╗██████╗ ██╗      ██████╗ ██████╗ ███████╗██████╗      ██╗ ██╗
+██╔════╝╚██╗██╔╝██╔══██╗██║     ██╔═══██╗██╔══██╗██╔════╝██╔══██╗    ███║███║
+█████╗   ╚███╔╝ ██████╔╝██║     ██║   ██║██████╔╝█████╗  ██████╔╝    ╚██║╚██║
+██╔══╝   ██╔██╗ ██╔═══╝ ██║     ██║   ██║██╔══██╗██╔══╝  ██╔══██╗     ██║ ██║
+███████╗██╔╝ ██╗██║     ███████╗╚██████╔╝██║  ██║███████╗██║  ██║     ██║ ██║
+╚══════╝╚═╝  ╚═╝╚═╝     ╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝     ╚═╝ ╚═╝
+
+███████╗██████╗  ██████╗ ███████╗    ██████╗  ██████╗ 
+██╔════╝██╔══██╗██╔════╝ ██╔════╝    ╚════██╗██╔═████╗
+█████╗  ██║  ██║██║  ███╗█████╗       █████╔╝██║██╔██║
+██╔══╝  ██║  ██║██║   ██║██╔══╝      ██╔═══╝ ████╔╝██║
+███████╗██████╔╝╚██████╔╝███████╗    ███████╗╚██████╔╝
+╚══════╝╚═════╝  ╚═════╝ ╚══════╝    ╚══════╝ ╚═════╝ 
+                                                      
+ ██████╗ ██████╗ ███████╗██████╗  █████╗     ██╗  ██╗███████╗
+██╔═══██╗██╔══██╗██╔════╝██╔══██╗██╔══██╗    ██║  ██║██╔════╝
+██║   ██║██████╔╝█████╗  ██████╔╝███████║    ███████║███████╗
+██║   ██║██╔═══╝ ██╔══╝  ██╔══██╗██╔══██║    ╚════██║╚════██║
+╚██████╔╝██║     ███████╗██║  ██║██║  ██║         ██║███████║
+ ╚═════╝ ╚═╝     ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝         ╚═╝╚══════╝
+
+███╗   ███╗ █████╗ ██╗  ██╗████████╗██╗  ██╗ ██████╗ ███╗   ██╗    ██╗  ██╗   █████╗    ███████╗
+████╗ ████║██╔══██╗╚██╗██╔╝╚══██╔══╝██║  ██║██╔═══██╗████╗  ██║    ██║  ██║  ██╔══██╗   ██╔════╝
+██╔████╔██║███████║ ╚███╔╝    ██║   ███████║██║   ██║██╔██╗ ██║    ███████║  ╚██████║   ███████╗   <--- One of the best browsers ever btw.
+██║╚██╔╝██║██╔══██║ ██╔██╗    ██║   ██╔══██║██║   ██║██║╚██╗██║    ╚════██║   ╚═══██║   ╚════██║
+██║ ╚═╝ ██║██║  ██║██╔╝ ██╗   ██║   ██║  ██║╚██████╔╝██║ ╚████║         ██║██╗█████╔╝██╗███████║
+╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝         ╚═╝╚═╝╚════╝ ╚═╝╚══════╝
+
+███████╗███████╗ █████╗ ███╗   ███╗ ██████╗ ███╗   ██╗██╗  ██╗███████╗██╗   ██╗    ██████╗ ██╗  ██╗ ██████╗ 
+██╔════╝██╔════╝██╔══██╗████╗ ████║██╔═══██╗████╗  ██║██║ ██╔╝██╔════╝╚██╗ ██╔╝    ╚════██╗██║  ██║██╔════╝ 
+███████╗█████╗  ███████║██╔████╔██║██║   ██║██╔██╗ ██║█████╔╝ █████╗   ╚████╔╝      █████╔╝███████║███████╗ 
+╚════██║██╔══╝  ██╔══██║██║╚██╔╝██║██║   ██║██║╚██╗██║██╔═██╗ ██╔══╝    ╚██╔╝      ██╔═══╝ ╚════██║██╔═══██╗
+███████║███████╗██║  ██║██║ ╚═╝ ██║╚██████╔╝██║ ╚████║██║  ██╗███████╗   ██║       ███████╗██╗  ██║╚██████╔╝
+╚══════╝╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝  ╚═╝╚══════╝   ╚═╝       ╚══════╝╚═╝  ╚═╝ ╚═════╝ 
+                                                                                           
+
+
+
+
+██╗███╗   ██╗████████╗███████╗██████╗ ███╗   ██╗███████╗████████╗
+██║████╗  ██║╚══██╔══╝██╔════╝██╔══██╗████╗  ██║██╔════╝╚══██╔══╝
+██║██╔██╗ ██║   ██║   █████╗  ██████╔╝██╔██╗ ██║█████╗     ██║   
+██║██║╚██╗██║   ██║   ██╔══╝  ██╔══██╗██║╚██╗██║██╔══╝     ██║   
+██║██║ ╚████║   ██║   ███████╗██║  ██║██║ ╚████║███████╗   ██║   
+╚═╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝   ╚═╝   
+
+██╗    ██╗███████╗██████╗ 
+██║    ██║██╔════╝██╔══██╗
+██║ █╗ ██║█████╗  ██████╔╝
+██║███╗██║██╔══╝  ██╔══██╗
+╚███╔███╔╝███████╗██████╔╝
+ ╚══╝╚══╝ ╚══════╝╚═════╝ 
+
+██████╗ ██████╗  ██████╗ ██╗    ██╗███████╗███████╗██████╗ 
+██╔══██╗██╔══██╗██╔═══██╗██║    ██║██╔════╝██╔════╝██╔══██╗
+██████╔╝██████╔╝██║   ██║██║ █╗ ██║███████╗█████╗  ██████╔╝
+██╔══██╗██╔══██╗██║   ██║██║███╗██║╚════██║██╔══╝  ██╔══██╗
+██████╔╝██║  ██║╚██████╔╝╚███╔███╔╝███████║███████╗██║  ██║
+╚═════╝ ╚═╝  ╚═╝ ╚═════╝  ╚══╝╚══╝ ╚══════╝╚══════╝╚═╝  ╚═╝
+
+███████╗ ██████╗ ███████╗████████╗██╗    ██╗ █████╗ ██████╗ ███████╗
+██╔════╝██╔═══██╗██╔════╝╚══██╔══╝██║    ██║██╔══██╗██╔══██╗██╔════╝
+███████╗██║   ██║█████╗     ██║   ██║ █╗ ██║███████║██████╔╝█████╗  
+╚════██║██║   ██║██╔══╝     ██║   ██║███╗██║██╔══██║██╔══██╗██╔══╝  
+███████║╚██████╔╝██║        ██║   ╚███╔███╔╝██║  ██║██║  ██║███████╗
+╚══════╝ ╚═════╝ ╚═╝        ╚═╝    ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝
+
+██╗     █████╗ ███╗   ███╗    ███╗   ██╗ ██████╗ ████████╗    ███████╗██╗   ██╗██████╗ ███████╗
+██║    ██╔══██╗████╗ ████║    ████╗  ██║██╔═══██╗╚══██╔══╝    ██╔════╝██║   ██║██╔══██╗██╔════╝
+██║    ███████║██╔████╔██║    ██╔██╗ ██║██║   ██║   ██║       ███████╗██║   ██║██████╔╝█████╗  
+██║    ██╔══██║██║╚██╔╝██║    ██║╚██╗██║██║   ██║   ██║       ╚════██║██║   ██║██╔══██╗██╔══╝  
+██║    ██║  ██║██║ ╚═╝ ██║    ██║ ╚████║╚██████╔╝   ██║       ███████║╚██████╔╝██║  ██║███████╗
+╚═╝    ╚═╝  ╚═╝╚═╝     ╚═╝    ╚═╝  ╚═══╝ ╚═════╝    ╚═╝       ╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝
+
+██╗███████╗    ██╗████████╗    ██╗    ██╗██╗██╗     ██╗     
+██║██╔════╝    ██║╚══██╔══╝    ██║    ██║██║██║     ██║     
+██║█████╗      ██║   ██║       ██║ █╗ ██║██║██║     ██║     
+██║██╔══╝      ██║   ██║       ██║███╗██║██║██║     ██║     
+██║██║         ██║   ██║       ╚███╔███╔╝██║███████╗███████╗
+╚═╝╚═╝         ╚═╝   ╚═╝        ╚══╝╚══╝ ╚═╝╚══════╝╚══════╝
+
+██╗    ██╗ ██████╗ ██████╗ ██╗  ██╗     ██████╗ ██████╗     ███╗   ██╗ ██████╗ ████████╗   
+██║    ██║██╔═══██╗██╔══██╗██║ ██╔╝    ██╔═══██╗██╔══██╗    ████╗  ██║██╔═══██╗╚══██╔══╝██╗
+██║ █╗ ██║██║   ██║██████╔╝█████╔╝     ██║   ██║██████╔╝    ██╔██╗ ██║██║   ██║   ██║   ╚═╝
+██║███╗██║██║   ██║██╔══██╗██╔═██╗     ██║   ██║██╔══██╗    ██║╚██╗██║██║   ██║   ██║   ██╗
+╚███╔███╔╝╚██████╔╝██║  ██║██║  ██╗    ╚██████╔╝██║  ██║    ██║ ╚████║╚██████╔╝   ██║   ╚═╝
+ ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝     ╚═════╝ ╚═╝  ╚═╝    ╚═╝  ╚═══╝ ╚═════╝    ╚═╝      
+
+
+
+███████╗ █████╗ ███████╗ █████╗ ██████╗ ██╗
+██╔════╝██╔══██╗██╔════╝██╔══██╗██╔══██╗██║
+███████╗███████║█████╗  ███████║██████╔╝██║
+╚════██║██╔══██║██╔══╝  ██╔══██║██╔══██╗██║
+███████║██║  ██║██║     ██║  ██║██║  ██║██║
+╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+My line count for this project is through the rough and I figured ok I might as well add my website notes here in the off-chance someone is this interested.
+
+This site was weeks in the making between the busy looking for work and doing online courses for my next diploma (basically because I am life-long learner.)
+Yes, that's right, I have 50 secondary-school credits, 4 coop placements, all working and going to school, two Canadian College diplomas which cost a fortune,
+plus a ton of online certificates ranging in price from 1 to Why did I pay that much?!?!. But no learning is wasted, it just takes time to see the pay-offs.
+
+Therefore I needed to make my site enterprise grade but under $20USD/annum.
+
+Technically my site goes :
+Origin) -> Browser request
+1) -> Namecheap (forwards DNS mgmt, 99.9% SLA)
+2) -> Cloudflare (Provides: SSL Cert, Website Caching, DNS Hiding, DDoS mitigation, global DNS, 99.99% SLA)
+3) -> GitHub Pages (Provides: Hosting of files in a "repository", basically just saving my files on their harddrives and serving them up to requests
+from cloudflare, No SLA for my tier but their SLA for paid is somewhere around 99.999%)
+
+Namecheap holds the name gordonstevens.ca and just forwards any requests to Cloudflare no matter what.
+Cloudflare does most of the legwork:
+— It provides the Secure Certificate, so I can use the "s" in "https://www.gordonstevens.ca"
+— It hides the DNS to whoever I use as a hosting service so they cannot be directly attacked
+— Their DNS is truly global, so if one of their datacentres goes down, it is picked up from another datacentre. They use tier 1 datacentres and bandwidth
+— They cache (keep a copy) of my website, in case my webhost goes down, so my page always shows up!
+
+Github Pages keeps a copy of my files on their physical harddrives/in cached server memory, this is where I actually upload my files.
+
+All of this is supported by some interesting but RFC-compliant DNS settings, which would have been impossible 5 years ago.
+
+- CDNs : I do not use Content Delivery Networks (CDNs) as is the fashion right now, because I want my website to be globally accessible.
+
+- Font Sets : May add Source Sans Pro or Open Sans later, but it adds load time. Also why can't I find quality WOFF2's of Museo Sans?
+
+- Yeah I know I'm still using some draft CSS but I figure the worst is that it adds to my line-count so no big deal at this point, and may still add some compatibility. (Ex: -o- -ms- -moz- -webkit-)
+
+- Responsive ranges: ~-px, 768px, 992px, 1200px, ~+px infinity
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+This is my reference to Lighthouse Labs, for HTML500
+-->
+<!doctype html>
+<html>
+<head>
+	<!-- Charset and Viewport -->
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Language" content="EN" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <!-- Cascading Style Sheets -->
+	<link id="gsfc-unified-library-css-part-1" href="./css/gsfc-unified-css-library-part-1.min.css" rel="stylesheet" type="text/css" media="all" />
+	<link id="gsfc-unified-library-css-part-2" href="./css/gsfc-unified-css-library-part-2.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Javascript -->
+	<script type="text/javascript" src="./js/gsfc-unified-js-library-part-1.min.js"></script>
+	<!-- Description (normal meta), Twitter (twitter:), Facebook (opengraph/OG) -->
+	<!-- Title -->
+	<title>Gordon Stevens :: Homepage</title>
+	<meta name="twitter:domain" content="Gordon Stevens Personal Portfolio Website" />
+	<meta name="abstract" content="Gordon Stevens Personal Portfolio Website" />
+	<meta property="og:title" content="Gordon Stevens :: Homepage" />
+	<!-- Description/Type -->
+	<meta property="og:site_name" content="Gordon Stevens Portfolio Website" />
+	<meta name="twitter:description" content="Gordon Stevens Personal Portfolio Website" />
+	<meta property="og:description" content="Gordon Stevens Personal Portfolio Website" />
+	<meta property="og:type" content="portfolio" />
+	<!-- Creation -->
+	<meta name="twitter:creator" content="Gordon Stevens" />
+	<meta name="author" content="Gordon Stevens" />
+	<!-- Canonical -->
+	<meta name="identifier-URL" content="https://www.gordonstevens.ca/">
+	<meta name="rating" content="general">
+	<link rel="canonical" href="https://www.gordonstevens.ca/">
+	<!-- Indexing and Caching -->
+	<meta name="robots" content="noindex,nofollow,noarchive">
+	<meta name="googlebot" content="noindex,nofollow,noarchive,nosnippet">
+	<meta http-equiv="expires" content="43200">
+	<!-- Title, Icons and unfortunate IE and Edge compatibilities -->
+    <link rel="apple-touch-icon" sizes="57x57" href="./img/gsfc-logo-ramp-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="./img/gsfc-logo-ramp-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./img/gsfc-logo-ramp-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="./img/gsfc-logo-ramp-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./img/gsfc-logo-ramp-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="./img/gsfc-logo-ramp-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="./img/gsfc-logo-ramp-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="./img/gsfc-logo-ramp-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./img/gsfc-logo-ramp-180x180.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./img/gsfc-logo-ramp-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/gsfc-logo-ramp-32x32.png">
+	<link rel="icon" type="image/png" sizes="48x48" href="./img/gsfc-logo-ramp-48x48.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="./img/gsfc-logo-ramp-96x96.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="./img/gsfc-logo-ramp-192x192.png">
+    <meta name="msapplication-TileColor" content="#f01d4f">
+    <meta name="msapplication-TileImage" content="./img/gsfc-logo-ramp-150x150.png">
+    <meta name="theme-color" content="#000000">
+    <!--[if IE]>
+    <link id="favicon" rel="shortcut icon" href="./img/gsfc-logo-ramp-48x48.ico">
+    <![endif]-->
+	<!-- Microsoft Internet Explorer and Edge REF: https://stackoverflow.com/questions/6771258/what-does-meta-http-equiv-x-ua-compatible-content-ie-edge-do -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+<body>
+	<a name="top"></a>
+	<nav class="navbar navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="false" class="navbar-toggle collapsed">
+                    <span class="sr-only">Menu</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+				<a href="#" class="navbar-brand"><span class="sr-only">Gordon Stevens</span><img src="./img/gsfc-logo-header-2.png" alt="Gordon Stevens"></a>
+			</div>
+			<div id="main-nav" class="collapse navbar-collapse">
+				<div id="main-action-nav" class="navbar-right">
+					<ul class="nav navbar-nav">
+						<li><a href="#contact" class="btn btn-contact">Contact</a></li>
+					</ul>
+				</div>
+				<ul id="main-nav-list" class="nav navbar-nav navbar-right">
+					<li><a href="#softwaretech"><i class="gsfc-icon icon-code"></i><span>Software</span></a></li>
+					<li><a href="#chemtech"><i class="gsfc-icon icon-chemistry"></i><span>Chemistry</span></a></li>
+					<!--
+					<li><a href="#electech"><i class="gsfc-icon icon-electronics"></i><span>Electronics</span></a></li>		
+					-->
+					<li><a href="#rschassistant"><i class="gsfc-icon icon-research"></i><span>Research</span></a></li>
+					<!--
+					<li><a href="#comptech"><i class="gsfc-icon icon-computertech"></i><span>Comp Tech</span></a></li>
+					-->
+					<!--
+					<li><a href="#rwbusiness"><i class="gsfc-icon icon-business"></i><span>Business</span></a></li>
+					-->
+					<!--
+					<li><a href="#techblog"><i class="gsfc-icon icon-techblog"></i><span>Tech Blog</span></a></li>
+					-->
+					<li><a href="#socialmedia"><i class="gsfc-icon icon-socialmedia"></i><span>Social Media</span></a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<header class="main">
+		<div class="container-fluid">
+			<div id="carousel" data-ride="carousel" class="carousel slide">
+				<div role="listbox" class="carousel-inner">
+					<div class="item active">
+						<div style="background-image: url(./img/gsfc-bg-torontoskyline-1298016-1920x1280.jpg)" class="carousel-item-image opacity09"></div>
+						<div class="carousel-caption">
+							<p>WELCOME TO MY WEBSITE!</p><br>
+							<p>MY NAME IS GORDON STEVENS</p><br>
+                            <p>I AM BASED IN TORONTO, CANADA</p>
+							<div><a href="#start" class="btn btn-link btn-orange">&gt;&nbsp;&nbsp;&nbsp;WELCOME!</a></div>
+						</div>
+					</div>
+
+					<div class="item">
+						<div style="background-image: url(./img/gsfc-bg-coding-fdcve3.jpg)" class="carousel-item-image"></div>
+						<div class="carousel-caption">
+							<p>SOFTWARE DEVELOPER</p><br>
+							<p>Diploma:</p><br>
+                            <p>Software Engineering Technician</p>
+							<div><a href="#softwaretech" class="btn btn-link btn-orange">&gt;&nbsp;&nbsp;&nbsp;SOFTWARE PROJECTS</a></div>
+						</div>
+					</div>
+					<div class="item">
+						<div style="background-image: url(./img/gsfc-bg-chemistry-svesjrwd.jpg)" class="carousel-item-image"></div>
+						<div class="carousel-caption">
+							<p>CHEMICAL ENGINEERING</p><br>
+                            <p>Diploma:</p><br>
+                            <p>Chemical Engineering Technologist</p>
+							<div><a href="#chemtech" class="btn btn-link btn-orange">&gt;&nbsp;&nbsp;&nbsp;CHEMICAL ENGINEERING EDUCATION</a></div>
+						</div>
+					</div>
+					<!-- This will be uncommented after I finish the section, but I wanted to plan ahead. -->
+					<!--
+					<div class="item">
+						<div style="background-image: url(./img/gsfc-bg-electronics-afcewtk.png)" class="carousel-item-image"></div>
+						<div class="carousel-caption">
+							<p>ELECTRONICS</p><br>
+                            <p>Certificate (In-Progress):</p><br>
+                            <p>Electronics Technician</p>
+							<div><a href="#electech" class="btn btn-link btn-orange">&gt;&nbsp;&nbsp;&nbsp;ELECTRONICS STUDIES</a></div>
+						</div>
+					</div>
+					-->
+					<div class="item">
+						<div style="background-image: url(./img/gsfc-bg-rsch-6b91f01.jpg)" class="carousel-item-image"></div>
+						<div class="carousel-caption">
+							<p>RESEARCH ASSISTANT</p><br>
+                            <p>Experience:</p><br>
+                            <p>Western University</p>
+							<div><a href="#rschassistant" class="btn btn-link btn-orange">&gt;&nbsp;&nbsp;&nbsp;SCIENTIFIC COMPENTENCIES</a></div>
+						</div>
+					</div>
+					<!--
+					<div class="item">
+						<div style="background-image: url(./img/gsfc-bg-computer-xvrertcf.jpg)" class="carousel-item-image"></div>
+						<div class="carousel-caption">
+							<p>COMPUTER TECHNICIAN</p><br>
+							<p>ASSEMBLY TO PASSWORD RESETS</p><br>
+                            <p>Experience: Staples Canada (10 Years)</p>
+							<div><a href="#comptech" class="btn btn-link btn-orange">&gt;&nbsp;&nbsp;&nbsp;LIST OF A&#043; COMPETENCIES</a></div>
+						</div>
+					</div>
+					-->
+					<!--
+					<div class="item">
+						<div style="background-image: url(./img/gsfc-business-bifertjh.jpg)" class="carousel-item-image"></div>
+						<div class="carousel-caption">
+							<p>RETAIL &amp; WHOLESALE BUSINESS</p><br>
+							<p>CUSTOMER FOCUSED SERVICE</p><br>
+                            <p>Experience: Staples Canada, Nedco</p>
+							<div><a href="#rwbusiness" class="btn btn-link btn-orange">&gt;&nbsp;&nbsp;&nbsp;BUSINESS EXPERIENCE</a></div>
+						</div>
+					</div>
+					-->
+				</div>
+				<a href="#carousel" role="button" data-slide="prev" class="left carousel-control">
+                    <span class="glyphicon glyphicon-chevron-left">
+                        <span class="sr-only">Previous</span>
+                    </span>
+                </a>
+                <a href="#carousel" role="button" data-slide="next" class="right carousel-control">
+                    <span class="glyphicon glyphicon-chevron-right">
+                        <span class="sr-only">Next</span>
+                    </span>
+                </a>
+			</div>
+			<div id="carousel-overlay">
+				<ul class="carousel-links">
+					<li>
+						<a href="#softwaretech">
+							<h5>Software Engineering</h5>
+							<p>Internet and App Development</p>
+							<span class="btn-read-more">Read More &gt;</span>
+						</a>
+					</li>
+					<li>
+						<a href="#chemtech">
+							<h5>Chemical Engineering</h5>
+							<p>Field and Lab Analysis</p>
+							<span class="btn-read-more">Read More &gt;</span>
+						</a>
+					</li>
+					<!--
+					<li>
+						<a href="#electech">
+							<h5>Electronics Technician</h5>
+							<p>Electronics Fundamentals</p>
+							<span class="btn-read-more">Read More &gt;</span>
+						</a>
+					</li>
+					-->
+					<li>
+						<a href="#rschassistant">
+							<h5>Research Assistant</h5>
+							<p>Industry Research with Ph.D. Students</p>
+							<span class="btn-read-more">Read More &gt;</span>
+						</a>
+					</li>
+					<!--
+					<li>
+						<a href="#comptech">
+							<h5>Computer Technician</h5>
+							<p>Helping hardware become reality</p>
+							<span class="btn-read-more">Read More &gt;</span>
+						</a>
+					</li>
+					-->
+					<!--
+					<li>
+						<a href="#rwbusiness">
+							<h5>Retail &amp; Wholesale Business</h5>
+							<p>Customer focused sales and services</p>
+							<span class="btn-read-more">Read More &gt;</span>
+						</a>
+					</li>
+					-->
+				</ul>
+			</div>
+		</div>
+	</header>
+	<a name="start"></a>
+	<!-- SECTION: Software Development -->
+	<a name="softwaretech"></a>
+	<p>&nbsp;</p>
+	<section class="section-catchy-phrase full-width container-fluid">
+		<div class="container text-center">
+			<h2>SOFTWARE DEVELOPMENT</h2>
+			<p class="sub-title-text">
+				From Commodore Basic on a VIC-20 until now with ASP.NET/C# on servers, programming has been my passion.
+			</p>
+			<p class="normal-text">
+				I develop software and websites within development teams as well as during my free time.<br>
+				I am a new <a href="http://www.centennialcollege.ca/programs-courses/full-time/software-engineering-technician/" target="_blank">software development graduate from Centennial College</a> in Toronto, Canada.<br>
+			</p>
+		</div>
+	</section>
+	<p>&nbsp;</p>
+
+	<!-- SECTION: Software Development Projects -->
+	<a name="softwaretechprojects"></a>
+
+	<!-- Project: Restaurant business management system, CODE: a1bxe1 -->
+	<section class="section-project-dark-outline full-width container-fluid">
+		<div class="row">
+			<div class="left-half col-md-6">
+				<h3 class="closeblack-text-shadow">Restaurant business management system</h3>
+				<p>
+					Complete restaurant management system documentation, detailed problem description, clearly defined use-cases, activity diagrams, user stories, C# skeleton code, Transact-SQL (database) code, deployment description and diagram, Class Responsibility Collaboration cards, Entity Relationship Diagram, Domain and Design class diagram, complete UI wireframes, Gantt charts for project management
+				</p>
+				&gt;&nbsp;&nbsp;&nbsp;<a href="./project-a1bxe1.htm" class="info-section-link">Project Details</a>
+			</div>
+			<div class="right-half col-md-6 bg100" style="background-image: url('./img/project-a1bxe1-bg-overlay-1.png')">
+				<div class="info-section-overlay">
+					<ul class="navbar-nav nav overlay-nav list-5">
+						<li>
+							<i class="gsfc-icon icon-tool-office"></i>
+							<span class="text-uppercase">Documentation</span>
+						</li>
+						<li>
+							<i class="gsfc-icon icon-tool-project"></i>
+							<span class="text-uppercase">Project Planning</span>
+						</li>
+						<li>
+							<i class="gsfc-icon icon-tool-ssms"></i>
+							<span class="text-uppercase">Database Verification</span>
+						</li>
+						<li>
+							<i class="gsfc-icon icon-language-tsql"></i>
+							<span class="text-uppercase">Database Language</span>
+						</li>
+						<li>
+							<i class="gsfc-icon icon-language-csharp"></i>
+							<span class="text-uppercase">Programming Language</span>
+						</li>
+					</ul>
+					<div class="overlay-details-now">
+						<a href="./project-a1bxe1.htm" class="btn btn-link btn-block">
+							<h4>Learn More</h4>
+							<div class="lower-text lighter">Project Details</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Project: Recipe management website, CODE: a1dhr1 -->
+	<section class="section-project-light-outline full-width container-fluid">
+		<div class="row">
+			<div class="left-half col-md-6">
+				<h3 class="closeblack-text-shadow">Recipe management website</h3>
+				<p>
+					Multi-user recipe management website, capabilities: view/add/edit/delete/search recipes, manage users.
+				</p>
+				&gt;&nbsp;&nbsp;&nbsp;<a href="./project-a1dhr1.htm" class="info-section-link">Project Details</a>
+			</div>
+			<div class="right-half col-md-6 bg100" style="background-image: url('./img/project-a1dhr1-bg-overlay-1.jpg')">
+				<div class="info-section-overlay">
+					<ul class="navbar-nav nav overlay-nav list-4">
+						<li>
+							<i class="gsfc-icon icon-language-csharp"></i>
+							<span class="text-uppercase">Programming Language</span>
+						</li>
+						<li>
+							<i class="gsfc-icon icon-language-tsql"></i>
+							<span class="text-uppercase">Database Language</span>
+						</li>
+						<li>
+							<i class="gsfc-icon icon-tool-ssms"></i>
+							<span class="text-uppercase">Database Tool</span>
+						</li>
+						<li>
+							<i class="gsfc-icon icon-tool-visualstudio"></i>
+							<span class="text-uppercase">Development Interface</span>
+						</li>
+					</ul>
+					<div class="overlay-details-now">
+						<a href="./project-a1dhr1.htm" class="btn btn-link btn-block">
+							<h4>Learn More</h4>
+							<div class="lower-text lighter">Project Details</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Project: Shipping label creator management website, CODE: a1shp1 -->
+	<section class="section-project-dark-outline full-width container-fluid">
+		<div class="row">
+			<div class="left-half col-md-6">
+				<h3 class="closeblack-text-shadow">Shipping Label Creator</h3>
+				<p>
+					Create and validate a shipping label in-browser, validated using Javascript and PHP.
+				</p>
+				&gt;&nbsp;&nbsp;&nbsp;<a href="./project-a1shp1.htm" class="info-section-link">Project Details</a>
+			</div>
+			<div class="right-half col-md-6 bg100" style="background-image: url('./img/project-a1shp1-bg-overlay-1.png')">
+				<div class="info-section-overlay">
+					<ul class="navbar-nav nav overlay-nav list-3">
+						<li>
+							<i class="gsfc-icon icon-language-php"></i>
+							<span class="text-uppercase">Programming Language</span>
+						</li>
+						<li>	
+							<i class="gsfc-icon icon-language-javascript"></i>
+							<span class="text-uppercase">Programming Language</span>
+						</li>
+						<li>
+							<i class="gsfc-icon icon-tool-visualstudiocode"></i>
+							<span class="text-uppercase">Tool</span>
+						</li>
+					</ul>
+					<div class="overlay-details-now">
+						<a href="./project-a1shp1.htm" class="btn btn-link btn-block">
+							<h4>Learn More</h4>
+							<div class="lower-text lighter">Project Details</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Project: Sports E-commerce, CODE: a1sso1 -->
+<!-- Temp
+	<section class="section-project-light-outline full-width container-fluid">
+		<div class="row">
+			<div class="left-half col-md-6">
+				<h3 class="closeblack-text-shadow">Sports E-commerce website<br>with store cash register</h3>
+				<p>
+					Prototype E-commerce system with PHP website and C# cash register application with shared database.
+				</p>
+				&gt;&nbsp;&nbsp;&nbsp;<a href="./project-a1sso1.htm" class="info-section-link">Project Details</a>
+			</div>
+			<div class="right-half col-md-6 bg100" style="background-image: url('./img/project-a1sso1-overlay-1.png')">
+				<div class="info-section-overlay">
+					<ul class="navbar-nav nav overlay-nav list-4">
+						<li>	
+							<i class="gsfc-icon icon-language-csharp"></i>
+							<span class="text-uppercase">Programming Language</span>
+						</li>
+						<li>
+							<i class="gsfc-icon icon-language-php5"></i>
+							<span class="text-uppercase">Programming Language</span>
+						</li>
+						<li>	
+							<i class="gsfc-icon icon-language-mysql"></i>
+							<span class="text-uppercase">Database Language</span>
+						</li>
+						<li>
+							<i class="gsfc-icon icon-tool-office"></i>
+							<span class="text-uppercase">Documentation</span>
+						</li>
+					</ul>
+					<div class="overlay-details-now">
+						<a href="./project-a1sso1.htm" class="btn btn-link btn-block">
+							<h4>Learn More</h4>
+							<div class="lower-text lighter">Project Details</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	-->
+	<!-- Project: Resort 303 hotel room bookings in crazy JEE7, CODE: a1jee1 -->
+<!-- Temp
+	<section class="section-project-dark-outline full-width container-fluid">
+		<div class="row">
+			<div class="left-half col-md-6">
+				<h3 class="closeblack-text-shadow">Resort room booking</h3>
+				<p>
+					Resort room booking with guest registration, information collection and booking confirmation.
+				</p>
+				<p>
+					Technologies: Java Enterprise 7, HTML5/CSS3, Material Design Lite (MDL) Library, MySQL Database, Eclipse Integrated Development Environment (IDE)
+				</p>
+				&gt;&nbsp;&nbsp;&nbsp;<a href="./project-a1jee1.htm" class="info-section-link">Project Details</a>
+			</div>
+			<div class="right-half col-md-6 bg100" style="background-image: url('./img/project-a1jee1-overlay-1.jpg')">
+				<div class="info-section-overlay">
+					<ul class="navbar-nav nav overlay-nav list-3">
+						<li>
+							<i class="gsfc-icon icon-language-javaee7"></i>
+							<span class="text-uppercase">Programming Language</span>
+						</li>
+						<li>
+							<i class="gsfc-icon icon-language-mysql"></i>
+							<span class="text-uppercase">Database Language</span>
+						</li>
+						<li>
+							<i class="gsfc-icon icon-tool-eclipse"></i>
+							<span class="text-uppercase">Development Interface</span>
+						</li>
+					</ul>
+					<div class="overlay-details-now">
+						<a href="./project-a1jee1.htm" class="btn btn-link btn-block">
+							<h4>Learn More</h4>
+							<div class="lower-text lighter">Project Details</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+-->
+	<section class="section-parallax-shortheight full-width container-fluid no-highlight">
+		<div class="row">
+			<div data-parallax="scroll" data-image-src="./img/gsfc-chemistry-wdsebkr.jpg" class="parallax-window"></div>
+		</div>
+	</section>
+
+	<!-- SECTION: CHEMICAL TECHNOLOGY -->
+	<a name="chemtech"></a>
+	<p>&nbsp;</p>
+
+	<section class="section-catchy-phrase full-width container-fluid">
+		<div class="container text-center">
+			<h2 class="closeblack-text-shadow">
+				Chemical Engineering Technology
+			</h2>
+			<p class="sub-title-text">
+				Chemical Engineering Technologists are employed in a variety of places including environmental, biological, radiological, and chemically purposed laboratories. Some activities can even be performed in the field with portable equipment. 
+			</p>
+			<p class="normal-text">
+				In the middle of the forest, I can be collecting water samples, counting and identifying plant species. From watching paint dry, to testing paint for reusage and repurposing, chemical technologists are there in a variety of places.
+			</p>
+		</div>
+	</section>
+
+	<section class="section-catchy-phrase orange-background full-width container-fluid">
+		<div class="container text-center">
+			<div class="row">
+				<div class="col-sm-4"><i class="gsfc-icon icon-pc"></i>
+					<p class="sub-title-text text-uppercase">Independent Research</p>
+					<p class="normal-text">I performed an extraction of active ingredients from plant material to produce a liquid spray. I then quantified what I had created and presented the work.</p>
+					<a href="#chemtechrsch" class="btn btn-link btn-readmore">Read More</a>
+				</div>
+				<div class="col-sm-4"><i class="gsfc-icon icon-suitcase"></i>
+					<p class="sub-title-text text-uppercase">500+ Hours lab time</p>
+					<p class="normal-text">With plenty of laboratory time, I learned how to use various equipment: Spectrophotometers, Flame AA, Furnace AA, incubators, microscopes, HPLC, and more.</p>
+					<a href="#chemtechlabtimeandprst" class="btn btn-link btn-readmore">Read More</a>
+				</div>
+				<div class="col-sm-4"><i class="gsfc-icon icon-user"></i>
+					<p class="sub-title-text text-uppercase">Presentation Skills</p>
+					<p class="normal-text">Multiple presentations of my work throughout my college career have prepared me for the workplace.</p>
+					<a href="#chemtechlabtimeandprst" class="btn btn-link btn-readmore">Read More</a>
+				</div>
+			</div>
+		</div>
+		<a name="chemtechrsch"></a>
+		<p>&nbsp;</p>
+		<div class="row" style="width: 65%; margin-left: auto; margin-right: auto;">
+			<div class="text-center closeblack-text-shadow">
+				<h2>
+					Independent Research
+				</h2>
+			</div>
+		</div>
+		<div class="row" style="width: 65%; margin-left: auto; margin-right: auto;">
+			<div class="text-center darkorange-text-shadow">
+				<p style="text-align: center;">
+					At <a href="http://www.loyalistcollege.com/">Loyalist College</a> my team, including <a href="https://www.linkedin.com/in/jennifer-hynes-8b937947/">Jennifer Hynes</a>, performed independent research to extract the active ingredients from the catnip plant and put them into liquid form.<br><br>
+					The project was entitled &quot;Supercritical CO<sub>2</sub> extraction of nepetalactones from Madjack brand catnip&quot;<br><br>
+					Using <a href="https://en.wikipedia.org/wiki/Supercritical_carbon_dioxide" target="_blank">Supercritical Carbon Dioxide &#040;CO<sub>2</sub>&#041;</a> to extract the active ingredients (nepetalactones) that cats love, the process leaves no bi-products and the carbon dioxide evaporates from the final liquid product.<br><br>
+					Liquid catnip extract can be safely sprayed onto cat toys, cat trees, and anything else you want your cat to enjoy.<br><br>
+					To verify the final product contained nepetalactones and no harmful contaminants, we compared our compound to industry-standard compounds ordered from a chemical compound supplier. 
+				</p>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-6 text-center darkorange-text-shadow">
+				<p>
+					<a href="./img/project-a1nip1-presentation-slide-1.jpg" target="_blank">
+						<img src="./img/project-a1nip1-presentation-slide-1.jpg" class="project-presentation-tile"><br><br>
+					</a>
+					Project Title Slide
+				</p>
+			</div>
+			<div class="col-md-6 text-center darkorange-text-shadow">
+				<p>
+					<a href="./img/project-a1nip1-presentation-slide-2.jpg" target="_blank">
+						<img src="./img/project-a1nip1-presentation-slide-2.jpg" class="project-presentation-tile"><br><br>
+					</a>
+					Project Explanation
+				</p>
+			</div>
+		</div>
+		<p>&nbsp;</p>
+		<div class="row">
+			<div class="col-md-6 text-center darkorange-text-shadow">
+				<p>
+					<a href="./img/project-a1nip1-presentation-slide-3.jpg" target="_blank">
+						<img src="./img/project-a1nip1-presentation-slide-3.jpg" class="project-presentation-tile"><br><br>
+					</a>
+					<a href="https://en.wikipedia.org/wiki/Gas_chromatography">Gas Chromatography</a> analysis
+				</p>
+			</div>
+			<div class="col-md-6 text-center darkorange-text-shadow">
+				<p>
+					<a href="./img/project-a1nip1-presentation-slide-4.jpg" target="_blank">
+						<img src="./img/project-a1nip1-presentation-slide-4.jpg" class="project-presentation-tile"><br><br>
+					</a>
+					Solvent and analyte peaks<br>on gas chromatograph
+				</p>
+			</div>
+		</div>
+		<!-- SECTION: Chemical Technlogy Lab Time and Presentations -->
+		<a name="chemtechlabtimeandprst"></a>
+		<p>&nbsp;</p>
+		<div class="row">
+			<div class="col-md-6 text-center closeblack-text-shadow">
+				<h3 class="closeblack-text-shadow">
+					500+ Hours of Laboratory Time<br>using Specialized Equipment<br><br>
+				</h3>
+				▫ Spectroscopy (UV, IR, Vis, NMR, MS, AA)<br>
+				▫ Chromatography (paper, column, thin layer, GC, GC-MS, LC)<br>
+				▫ Extraction (liquid, solid, Soxhlet, ultrasonic, microwave, supercritical)<br>
+				▫ Evaporation, drying, titrations, humidity and distillation, refractometry, polarimetry, Kjeldahl, sifting, chemical reactors, heat exchange, Petri dish plating<br>
+				▫ Field Placement and Over 550 hours of laboratory curriculum
+			</div>
+			<div class="col-md-6 text-center closeblack-text-shadow">
+					<h3>
+						Presentation Skills<br><br>
+					</h3>
+					From concise notetaking in and outside of the lab, to convincing peers of how to approach a difficult problem and presenting the final project, I have enjoyed learning how to present to my peers, technical audiences, lay-people, professors, and all types of people with different backgrounds. 
+			</div>
+		</div>
+	</section>
+
+	<section class="section-parallax-shortheight full-width container-fluid no-highlight">
+		<div class="row">
+			<div data-parallax="scroll" data-image-src="./img/gsfc-bg-chemistry-vewqmkxz.jpg" class="parallax-window"></div>
+		</div>
+	</section>
+
+	<!-- SECTION: RESEARCH ASSISTANTCY -->
+	<a name="rschassistant"></a>
+	<p>&nbsp;</p>
+
+	<section class="section-catchy-phrase full-width container-fluid">
+		<div class="container text-center">
+			<h2 class="closeblack-text-shadow">
+				Research Assistant
+			</h2>
+			<p class="sub-title-text">
+				<a href="http://www.uwo.ca/" target="_blank">Western University</a> Research Assistant 
+			</p>
+			<p class="normal-text text-center-75percent darkorange-text-shadow">
+				At <a href="http://www.uwo.ca/" target="_blank">Western University</a>, through a Co-Operative Education Program &#040;Co-Op&#041;, I was able to assist Masters and Ph.D. Students with their research. Each university lab was supervised by a faculty member, and I worked day-to-day, side-by-side with graduate students working on their research for their Masters, Ph.D. and Post-doctoral fellow degrees.<br><br>
+				Due to success in my first Research Assistance position in Mobile Genetics at <a href="http://publish.uwo.ca/~dedgell/_dedgell/Welcome.html" target="_blank">Dr. Edgell&#039;s lab</a>, I was able to get another Co-Op position at Western.<br><br>
+				My second Western University Co-Op placement was in Dr. Li&#039;s chemical reactor research lab.
+			</p>
+		</div>
+	</section>
+	<section class="section-catchy-phrase full-width orange-background container-fluid">
+		<div class="row orange-background">
+			<div class="text-center col-md-6 closeblack-text-shadow">
+				<a href="./coop-a1aeh1.htm">
+					<h3>Genetics Co-Op Pictures</h3><br>
+					<img src="./img/gsfc-coop-genetics-icontile-1.png" class="coop-click-picture-tile">
+				</a>
+			</div>
+			<div class="text-center col-md-6 closeblack-text-shadow">
+				<a href="./coop-a1cfb1.htm">
+					<h3>Chemical Engineering Co-Op Pictures</h3><br>
+					<img src="./img/gsfc-coop-chemengineering-icontile-1.png" class="coop-click-picture-tile">
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- SECTION: SOCIAL MEDIA -->
+	<a name="socialmedia"></a>
+	
+	<section class="section-contact orange-closeblack-gradient-top-to-bottom-background full-width container-fluid contactbgtest">
+		<div class="container text-center">
+			<h2 class="text-uppercase closeblack-text-shadow">Stay in Touch</h2>
+		</div>
+	</section>
+
+	<section class="section-info-full about full-width container-fluid">
+		<div class="container">
+			<div class="row">
+				<h3 class="text-center">Social Media</h3>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-md-4 text-center">
+					<p>
+						<a href="&#104;&#116;&#x74;&#112;&#115;&#58;&#x2f;&#x2f;&#103;&#x6f;&#111;&#x2e;&#x67;&#x6c;&#47;&#x75;&#x50;&#x72;&#120;&#75;&#x30;" target="_blank">
+							<img src="./img/gsfc-logo-instagram.png">
+							<br>
+							<h3>&#073;&#110;&#115;&#116;&#097;&#103;&#114;&#097;&#109;</h3>
+							Photos of Toronto, Canada
+						</a>
+					</p>
+				</div>
+				<div class="col-md-4 text-center">
+					<p>
+						<a href="&#x68;&#116;&#116;&#112;&#x73;&#x3a;&#47;&#x2f;&#x67;&#111;&#x6f;&#46;&#x67;&#108;&#x2f;&#x45;&#x59;&#x61;&#53;&#53;&#x79;" target="_blank">
+							<img src="./img/gsfc-logo-linkedin-1-300x300.png">
+							<br>
+							<h3>&#076;&#105;&#110;&#107;&#101;&#100;&#073;&#110;</h3>
+							Global, Professional Social Networking
+						</a>
+					</p>
+				</div>
+				<div class="col-md-4 text-center">
+					<p>
+						<a href="&#x68;&#x74;&#x74;&#112;&#115;&#x3a;&#x2f;&#x2f;&#x67;&#x6f;&#x6f;&#x2e;&#103;&#108;&#47;&#x64;&#x57;&#x53;&#114;&#x6a;&#x43;" target="_blank">
+							<img src="./img/gsfc-logo-twitter-1-300x300.png">
+							<br>
+							<h3>&#084;&#119;&#105;&#116;&#116;&#101;&#114;</h3>
+							Posts with 140 characters or less about technology
+						</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+ 
+	<!-- SECTION: CONTACT -->
+	<a name="contact"></a>
+    
+	<section data-parallax="scroll" data-image-src="#" class="section-parallax-email full-width container-fluid parallax-window">
+        <div class="container text-center">
+            <h2 class="text-uppercase">Electronic Mail</h2>
+			<a href="&#109;&#097;&#105;&#108;&#116;&#111;&#58;&#103;&#111;&#114;&#100;&#111;&#110;&#064;&#103;&#111;&#114;&#100;&#111;&#110;&#115;&#116;&#101;&#118;&#101;&#110;&#115;&#046;&#099;&#097;" class="btn btn-start-now">&#103;&#111;&#114;&#100;&#111;&#110;&#064;&#103;&#111;&#114;&#100;&#111;&#110;&#115;&#116;&#101;&#118;&#101;&#110;&#115;&#046;&#099;&#097;</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container-fluid">
+            <div class="row footer-main-content">
+                <div class="col-md-5 footer-logo">
+                    <div>
+						<a href="#top">
+							<img src="./img/gsfc-logo-footer-2.png" class="logo-big" alt="footer">
+						</a>
+					</div>
+                </div>
+                <div class="col-md-4">
+                    <h3 class="text-uppercase">Site Map</h3>
+                    <ul class="site-map-list">
+                        <li><a href="#softwaretech" class="btn btn-link btn-site-map text-uppercase">Software Development</a></li>
+                        <!--
+						<li><a href="#electech" class="btn btn-link btn-site-map text-uppercase">Electronics Technician</a></li>
+                        -->
+						<li><a href="#chemtech" class="btn btn-link btn-site-map text-uppercase">Chemical Technology</a></li>
+                        <li><a href="#researchassist" class="btn btn-link btn-site-map text-uppercase">Research Assistance</a></li>
+                        <!--
+						<li><a href="#comptech" class="btn btn-link btn-site-map text-uppercase">Computer Technician</a></li>
+                        <li><a href="#rwbusiness" class="btn btn-link btn-site-map text-uppercase">Retail &amp; Wholesale Business</a></li>
+						<li><a href="#techblog" class="btn btn-link btn-site-map text-uppercase">Tech Blog</a></li>
+                        -->
+						<li><a href="#socialmedia" class="btn btn-link btn-site-map text-uppercase">Social Media</a></li>
+                        <li><a href="#contact" class="btn btn-link btn-site-map text-uppercase">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h3 class="text-uppercase">Contact</h3>
+                    <div class="footer-contact-detail">
+                        <p><strong><a href="&#109;&#097;&#105;&#108;&#116;&#111;&#58;&#103;&#111;&#114;&#100;&#111;&#110;&#064;&#103;&#111;&#114;&#100;&#111;&#110;&#115;&#116;&#101;&#118;&#101;&#110;&#115;&#046;&#099;&#097;">&#103;&#111;&#114;&#100;&#111;&#110;&#064;&#103;&#111;&#114;&#100;&#111;&#110;&#115;&#116;&#101;&#118;&#101;&#110;&#115;&#046;&#099;&#097;</a></strong></p>
+						<p>Toronto:&nbsp;<strong><a href="&#116;&#101;&#108;&#058;&#043;&#049;&#054;&#052;&#055;&#057;&#048;&#057;&#057;&#048;&#057;&#057;">&#054;&#052;&#055;&#045;&#057;&#048;&#057;&#045;&#057;&#048;&#057;&#057;</a></strong></p>
+                        <p>London:&nbsp;<strong><a href="&#116;&#101;&#108;&#058;&#043;&#049;&#053;&#049;&#057;&#052;&#056;&#056;&#054;&#053;&#050;&#048;">&#053;&#049;&#057;&#045;&#052;&#056;&#056;&#045;&#054;&#053;&#050;&#048;</a></strong></p>
+                        <p>Halifax:&nbsp;<strong><a href="&#116;&#101;&#108;&#058;&#043;&#049;&#057;&#048;&#050;&#057;&#056;&#050;&#049;&#053;&#050;&#052;">&#057;&#048;&#050;&#045;&#057;&#056;&#050;&#045;&#049;&#053;&#050;&#052;</a></strong></p>
+                        <p>St.&nbsp;John&rsquo;s:&nbsp;<strong><a href="&#116;&#101;&#108;&#058;&#043;&#049;&#055;&#048;&#057;&#055;&#053;&#055;&#055;&#049;&#051;&#057;">&#055;&#048;&#057;&#045;&#055;&#053;&#055;&#045;&#055;&#049;&#051;&#057;</a></strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row footer-small-content">
+                <div class="col-md-6">
+                    <p class="text-copyright">
+						Created with <a href="https://www.google.com/chrome/" target="_blank">Google Chrome</a>, <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a>, <a href="https://www.gimp.org/" target="_blank">GIMP</a>, <a href="https://inkscape.org/en/" target="_blank">Inkscape</a>
+					</p>
+                </div>
+				<!-- I don't really need these for my personal website, I put them in originally for spacing and somehow seemed more professional somehow, now, meh, nah, out for now.
+                <div class="col-md-6 bottom-links">
+					<a href="#" class="btn btn-link btn-policy">Embedded Technologies</a>--><!--: AODA, Aria, Accessibility, Cookies, W3 POWDER, Ratings-->
+                    <!--<a href="impressum.htm" class="btn btn-link btn-policy">Impressum</a>--><!--: Regulatory, Privacy, Terms &amp; Conditions-->
+                <!--
+				</div>
+				-->
+            </div>
+        </div>
+    </footer>
+	<!-- Javascript -->
+    <script type="text/javascript" src="./js/gsfc-unified-js-library-part-2.min.js"></script>
+</body>
+</html>
