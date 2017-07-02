@@ -414,6 +414,7 @@ body {
   font-size: 14px;
   color: #fff;
   padding-top: 85px;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* Usuals*/
@@ -2833,7 +2834,9 @@ section.section-contact-form .box-contact-info p {
     text-align: left;
   }
 }
-/* COLUMNAR TABLE SECTION REMOVED FOR NOW
+
+/* --> SECTION: COLUMNAR TABLE I WILL REUSE FOR SEVERAL WEBPAGES
+------------------------------------------------------------------------------------------------------------------------------- */
 section.section-columnar-table {
   padding-top: 30px;
   padding-bottom: 35px;
@@ -2894,7 +2897,7 @@ section.section-columnar-table .pri .lower-text.old {
   font-size: 18px;
   font-weight: 500;
 }
-
+/*
 @media (min-width: 992px) {
   section.section-columnar-table .pri .lower-text {
     font-weight: 700;
@@ -2908,32 +2911,38 @@ section.section-columnar-table .pri .lower-text.old {
     font-size: 30px;
   }
 }
-
+*/
 section.section-columnar-table .btn-wrapper {
   padding-top: 13px;
   padding-bottom: 10px;
 }
 
-section.section-columnar-table .btn.btn-add-to-basket {
-  padding: 5px 15px;
+section.section-columnar-table .btn.btn-columnar-action {
+  padding: 5px 5px;
   background-color: transparent;
   border: 2px solid #ff7430;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
+  -o-border-radius: 9px;
+  -ms-border-radius: 9px;
+  -moz-border-radius: 9px;
+  -webkit-border-radius: 9px;
+  border-radius: 9px;
   color: #ff7430;
   text-transform: uppercase;
   text-align: center;
 }
 
-section.section-columnar-table .btn.btn-add-to-basket:hover, section.section-columnar-table .btn.btn-add-to-basket:focus {
+section.section-columnar-table .btn.btn-columnar-action:hover,
+section.section-columnar-table .btn.btn-columnar-action:focus {
   color: #fff;
   background-color: #ff7430;
 }
 
-section.section-columnar-table a.btn.btn-add-to-basket {
+section.section-columnar-table a.btn.btn-columnar-action {
   margin-top: 8px;
 }
+/*
+
+
 */
 header.main {
   position: relative;
