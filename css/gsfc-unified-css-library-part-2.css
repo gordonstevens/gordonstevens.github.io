@@ -963,7 +963,8 @@ section.section-parallax-email a.btn-start-now {
 section.section-parallax-email a.btn-start-now:hover {
   background: rgba(0, 0, 0, 0.8);
   border: 3px solid #ff7430;
-  animation-name: kf-20step-color;
+  color: #ff7430;
+  animation-name: kf-5step-orange;
   animation-duration: 3s;
   animation-iteration-count: infinite;
   animation-timing-function: cubic-bezier(0, 0.3, 0.7, 1.0);
@@ -3083,7 +3084,8 @@ header.main .container-fluid {
   color: #fff;
 }
 
-#carousel-overlay .carousel-links li a:hover, #carousel-overlay .carousel-links li a:focus {
+#carousel-overlay .carousel-links li a:hover,
+#carousel-overlay .carousel-links li a:focus {
   text-decoration: none;
 }
 
@@ -3093,8 +3095,20 @@ header.main .container-fluid {
 
 @media (min-width: 768px) {
   #carousel-overlay .carousel-links li {
+    /*
     border-left: 1px solid rgba(255, 255, 255, 0.6);
+    */
     margin-bottom: 0;
+  }
+}
+
+/* not working on higher res now!?!? Displays fine on my laptop but disappears at higher res */
+@media (min-width: 768px) {
+  #carousel-overlay .carousel-links li:last-child {
+    /*
+    border-right: 1px solid rgba(255, 255, 255, 0.6);
+    */
+    margin-bottom: 0px;
   }
 }
 
@@ -3147,13 +3161,6 @@ header.main .container-fluid {
   color: #fff;
   letter-spacing: 1px;
   border: 1px solid rgba(255, 255, 255, 0.6);
-}
-
-@media (min-width: 768px) {
-  #carousel-overlay .carousel-links li:last-child {
-    border-right: 1px solid rgba(255, 255, 255, 0.6);
-    margin-bottom: 0px;
-  }
 }
 
 .info-box {
