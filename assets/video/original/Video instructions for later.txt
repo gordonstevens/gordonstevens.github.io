@@ -1,0 +1,19 @@
+Downloaded some royalty-free stock videos from http://wwww.coverr.co/
+
+Using Windows 10 and Olive April 2019, Alpha, 1e3cf533 from https://www.olivevideoeditor.org/
+
+File -> Import...
+Selected downloaded Coverr video file, then dragged and dropped to the timeline, chopped some longer videos then
+File -> Export...
+
+Format: MPEG-4 Video
+Codec: libx264 H.264 / AVC / MPEG-4 AVC / ...
+Width: 960    (Half of 1920)
+Height: 540    (Half of 1080)
+Frame rate: 25.00
+Compression Type: Quality based (CRF)
+Quality (CRF): 25.00
+
+Audio channel unchecked
+
+Then picked a new folder and exported
