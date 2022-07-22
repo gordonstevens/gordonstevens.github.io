@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   viewBox="0 0 24 24"
+   version="1.1"
+   id="svg9"
+   sodipodi:docname="gsfc-icon-social-media-1.svg"
+   inkscape:version="0.92.1 r15371"
+   inkscape:export-filename="C:\Users\t1tmbit\Desktop\GORDONSTEVENSCA\Site2\img\gsfc-icon-social-media-1-77x77.png"
+   inkscape:export-xdpi="336"
+   inkscape:export-ydpi="336">
+  <metadata
+     id="metadata15">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs13" />
+  <sodipodi:namedview
+     pagecolor="#000000"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="715"
+     id="namedview11"
+     showgrid="false"
+     inkscape:zoom="9.8333333"
+     inkscape:cx="10.271186"
+     inkscape:cy="12"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="_Group_" />
+  <g
+     id="Instagram">
+    <g
+       data-name="&lt;Group&gt;"
+       id="_Group_">
+      <rect
+         data-name="&lt;Path&gt;"
+         height="21"
+         id="_Path_"
+         rx="5.48"
+         ry="5.48"
+         style="fill:#ffffff;stroke:#303c42;stroke-linecap:round;stroke-linejoin:round"
+         width="21"
+         x="1.5"
+         y="1.5" />
+      <circle
+         cx="12"
+         cy="12"
+         data-name="&lt;Path&gt;"
+         id="_Path_2"
+         r="5.5"
+         style="fill:#ffffff;stroke:#303c42;stroke-linecap:round;stroke-linejoin:round" />
+      <circle
+         cx="18"
+         cy="5"
+         data-name="&lt;Path&gt;"
+         id="_Path_3"
+         r="0.5"
+         style="fill:#ffffff;stroke:#303c42;stroke-linecap:round;stroke-linejoin:round" />
+    </g>
+  </g>
+</svg>
