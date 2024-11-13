@@ -1,0 +1,25 @@
+---
+import '@styles/astro-global.css';
+import FontAndThemeSwitcher from '@components/FontAndThemeSwitcher.astro';
+import * as constants from '@styles/constants.ts';
+
+interface Props {
+	title?: string | undefined;
+	description?: string | undefined;
+}
+
+const {
+	title = constants.SiteSetup.Title,
+	description = constants.SiteSetup.Description,
+} = Astro.props;
+
+---
+
+<!-- Global Metadata -->
+<meta charset="UTF-8" />
+<link rel="icon" type="image/svg+xml" href={constants.SiteSetup.Favicon} />
+<meta name="description" property="og:description" content={description} />
+<meta name="viewport" content="width=device-width" />
+<title>{title}</title>
+
+<FontAndThemeSwitcher />

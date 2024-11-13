@@ -1,0 +1,13 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+	education: CollectionEntry<'education'>;
+}
+
+const { data, slug } = Astro.props.education;
+---
+
+<a href={`/education/${slug}`} aria-label={`View details for ${data.title}`}>
+	<span class="title">{data.school}: {data.program} ({data.credential})</span>
+</a>

@@ -1,0 +1,119 @@
+---
+// Imports
+import Grid from '@components/Grid.astro';
+import CallToAction from '@components/CallToAction.astro';
+import PrincesseuhIcon from '@components/PrincesseuhIcon.astro';
+import ProjectPreview from '@components/ProjectPreview.astro';
+
+// Props
+interface Props {
+	title?: string;
+	tagline?: string;
+	buttonText?: string;
+	nProjects?: number;
+}
+const { title = 'Selected Work', tagline = 'Take a look below at some of my projects similar to and based on work for clients.', buttonText = 'View All', nProjects = 4 } = Astro.props;
+
+// Content Fetching: List some of the most recent work projects
+import { getCollection } from 'astro:content';
+const projects = (await getCollection('projects')).sort((a:any, b:any) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()).slice(0, nProjects);
+
+// Note: Switched <Grid variant="offset"> to <Grid> -->
+---
+
+{
+  projects.length > 0 ? (
+    <section class="section with-background with-cta">
+      <header class="section-header stack gap-2 lg:gap-4">
+        <h3>{title}</h3>
+        <p>{tagline}</p>
+      </header>
+      <div class="gallery">
+        <Grid>
+          {
+            projects.map((project:any) => (
+              <li>
+                <ProjectPreview project={project} />
+              </li>
+            ))
+          }
+        </Grid>
+      </div>
+      <div class="cta">
+        <CallToAction href="/projects/">
+          {buttonText} <PrincesseuhIcon icon="arrow-right" size="1.2em" />
+        </CallToAction>
+      </div>
+    </section>
+  ) : (
+    <div>&nbsp;</div>
+  )
+}
+
+<style>
+	.section {
+		display: grid;
+		gap: 2rem;
+	}
+	.with-background {
+		position: relative;
+	}
+	.with-background::before {
+		--hero-bg: var(--bg-image-subtle-2);
+		content: '';
+		position: absolute;
+		pointer-events: none;
+		left: 50%;
+		width: 100vw;
+		aspect-ratio: calc(2.25 / var(--bg-scale));
+		top: 0;
+		transform: translateY(-75%) translateX(-50%);
+		background:
+			url('/assets/backgrounds/noise.png') top center/220px repeat,
+			var(--hero-bg) center center / var(--bg-gradient-size) no-repeat,
+			var(--gray-999);
+		background-blend-mode: overlay, normal, normal, normal;
+		mix-blend-mode: var(--bg-blend-mode);
+		z-index: -1;
+	}
+	.with-background.bg-variant::before {
+		--hero-bg: var(--bg-image-subtle-1);
+	}
+	.section-header {
+		justify-self: center;
+		text-align: center;
+		max-width: 50ch;
+		font-size: var(--text-md);
+		color: var(--gray-300);
+	}
+	.section-header h3 {
+		font-size: var(--text-2xl);
+	}
+	@media (min-width: 50em) {
+		.section {
+			grid-template-columns: repeat(4, 1fr);
+			grid-template-areas: 'header header header header' 'gallery gallery gallery gallery';
+			gap: 5rem;
+		}
+		.section.with-cta {
+			grid-template-areas: 'header header header cta' 'gallery gallery gallery gallery';
+		}
+		.section-header {
+			grid-area: header;
+			font-size: var(--text-lg);
+		}
+		.section-header h3 {
+			font-size: var(--text-4xl);
+		}
+		.with-cta .section-header {
+			justify-self: flex-start;
+			text-align: left;
+		}
+		.gallery {
+			grid-area: gallery;
+		}
+		.cta {
+			grid-area: cta;
+		}
+	}
+</style>

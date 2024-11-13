@@ -1,0 +1,176 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content';
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import ContactCTA from '@components/ContactCTA.astro';
+import Hero from '@components/Hero.astro';
+import Pill from '@components/Pill.astro';
+import { Aside } from '@astrojs/starlight/components';
+
+interface Props { geentry: CollectionEntry<'employment'>;}
+
+// This is a dynamic route that generates a page for every Markdown file in src/content/
+// Read more about dynamic routes and this `getStaticPaths` function in the Astro docs:
+// https://docs.astro.build/en/core-concepts/routing/#dynamic-routes
+export async function getStaticPaths() {
+	const educate = await getCollection('volunteer');
+	return educate.map((geentry:any) => ({
+		params: { slug: geentry.slug },
+		props: { geentry },
+	}));
+}
+
+const { geentry } = Astro.props;
+const { Content } = await geentry.render();
+
+function isValidDate(date:any): boolean {
+	return date instanceof Date && !isNaN(date.getTime());
+}
+function formatDateString(dateString: any): string { var date = new Date(dateString); // Adjust date to neutralize timezone effect
+	var localDate = new Date(date.getTime() + Math.abs(date.getTimezoneOffset() * 60000));
+	return localDate.toLocaleDateString('en-ca', { year: 'numeric', month: 'short', day: 'numeric' });
+}
+var dateline;
+dateline = (geentry.data.endDate && isValidDate(geentry.data.endDate)) ? formatDateString(geentry.data.startDate) + " - " + formatDateString(geentry.data.endDate) : formatDateString(geentry.data.startDate) + " - Present";
+---
+
+<BaseLayout title={geentry.data.positionTitle} description={geentry.data.description}>
+	<div class="stack gap-20">
+		<div class="stack gap-15">
+			<header>
+				<div class="wrapper stack gap-2">
+					<span>
+						<a class="back-link" href="/about/">/About</a>
+					</span>
+					<Hero title={geentry.data.positionTitle} tagline={geentry.data.companyName} align="start">
+						<div class="details">
+							<div class="tags">
+								{geentry.data.tags.map((t:string) => <Pill>{t}</Pill>)}
+							</div>
+							<p class="description">{geentry.data.description}</p>
+						</div>
+					</Hero>
+				</div>
+			</header>
+			<main class="wrapper">
+				<div class="stack gap-10 content">
+					{geentry.data.img_alt && <img src={ `/assets/volunteer/${geentry.slug}/${geentry.slug}.jpg`} alt={geentry.data.img_alt || ''} />}
+
+{
+/*
+	showSequence: z.number(),
+	companyName: z.string(),
+	companyUrl: z.string(),
+	location: z.string().optional(),
+	address: z.string().optional(),
+	addressUrl: z.string().optional(),
+	country: z.string(),
+	positionTitle: z.string(),
+	positionStatusType: z.string(),
+	positionDeliveryType: z.string(),
+	description: z.string(),
+	headline: z.string(),
+	tags: z.array(z.string()),
+	startDate: z.coerce.date(),
+	endDate: z.coerce.date().optional(),
+	img_alt: z.string().optional(),
+*/
+}
+
+
+					<div class="content">
+						<Aside type="tip" title="Information">
+							<strong>Company Name</strong>: <a href={geentry.data.companyUrl} target="_blank">{geentry.data.companyName}</a><br>
+							{geentry.data.location && (
+								<>
+									<strong>Location</strong>: {geentry.data.location}<br>
+								</>
+							)}							
+							{geentry.data.address && (
+								<>
+									<strong>Address</strong>: {geentry.data.address}<br>
+								</>
+							)}	
+							<br>
+							<strong>Position</strong>: {geentry.data.positionTitle}
+							<br>
+							<strong>Dates</strong>: {dateline}
+							<br>
+							<strong>Position Type</strong>: {geentry.data.positionStatusType}
+							<br>
+							<strong>Workplace Type</strong>: {geentry.data.positionDeliveryType}
+							<br><br>
+							<strong>Description</strong>: {geentry.data.headline}
+						</Aside>
+						<Content />
+					</div>
+				</div>
+			</main>
+		</div>
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	header {
+		padding-bottom: 2.5rem;
+		border-bottom: 1px solid var(--gray-800);
+	}
+	.back-link { display: none; }
+	.details {
+		display: flex;
+		flex-direction: column;
+		padding: 0.5rem;
+		gap: 1.5rem;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.tags {
+		display: flex;
+		gap: 0.5rem;
+	}
+	.description {
+		font-size: var(--text-lg);
+		max-width: 54ch;
+	}
+	.content {
+		max-width: 75ch;
+		margin-inline: auto;
+	}
+	.content > :global(* + *) { margin-top: 1rem; }
+	.content :global(h1),	.content :global(h2),	.content :global(h3),	.content :global(h4), .content :global(h5) { margin: 1.5rem 0; }
+	.content :global(img) {
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-sm);
+		background: var(--gradient-subtle);
+		border: 1px solid var(--gray-800);
+	}
+	.content :global(blockquote) {
+		font-size: var(--text-sm);
+		font-family: var(--font-brand);
+		font-weight: 600;
+		line-height: 1.1;
+		padding-inline-start: 1.5rem;
+		border-inline-start: 0.25rem solid var(--accent-dark);
+		color: var(--gray-0);
+	}
+	.back-link, .content :global(a) {
+		text-decoration: 1px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition);
+	}
+	.back-link:hover, .back-link:focus, .content :global(a:hover), .content :global(a:focus) { text-decoration-color: currentColor; }
+	@media (min-width: 50em) {
+		.back-link {
+			display: block;
+			align-self: flex-start;
+		}
+		.details {
+			flex-direction: row;
+			gap: 2.5rem;
+		}
+		.content :global(blockquote) {
+			font-size: var(--text-2xl);
+		}
+	}
+</style>

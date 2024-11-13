@@ -1,0 +1,204 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Hero from '@components/Hero.astro';
+import ContactCTA from '@components/ContactCTA.astro';
+import * as constants from '@styles/constants';
+import { getCollection } from 'astro:content';
+
+import EducationPreview from '@components/EducationPreview.astro';
+const gordoneducation = (await getCollection('education')).sort((a:any, b:any) => b.data.dateFinished.valueOf() - a.data.dateFinished.valueOf(),);
+
+import CoopEducationPreview from '@components/CoopEducationPreview.astro';
+const gordoncoopeducation = (await getCollection('coopeducation')).sort((a:any, b:any) => b.data.showSequence.valueOf() - a.data.showSequence.valueOf(),);
+
+import ProfessionalDevelopmentPreview from '@components/ProfessionalDevelopmentPreview.astro';
+const prodeveducation = (await getCollection('professionaldevelopment')).sort((a:any, b:any) => b.data.dateFinished.valueOf() - a.data.dateFinished.valueOf(),);
+
+import EmploymentPreview from '@components/EmploymentPreview.astro';
+const employmentcollection = (await getCollection('employment')).sort((a:any, b:any) => b.data.showSequence.valueOf() - a.data.showSequence.valueOf(),);
+
+import VolunteerPreview from '@components/VolunteerPreview.astro';
+const volunteercollection = (await getCollection('volunteer')).sort((a:any, b:any) => b.data.showSequence.valueOf() - a.data.showSequence.valueOf(),);
+
+const assocTextLinks: { label: string; href: string }[] = [
+	{ label: 'Drone Pilot Association of Canada', href: constants.AssocLink.DronePilotAssocCanada },		
+	{ label: 'Hot Pepper Growing Society', href: constants.AssocLink.HotPepperGrowingSociety },
+	{ label: 'Internet Engineering Task Force (IETF): Internet Society', href: constants.AssocLink.InternetSociety },
+	{ label: 'International Society of Automation', href: constants.AssocLink.InternationalSocietyAutomation },
+	{ label: 'Laboratory Informatics Institute', href: constants.AssocLink.LabInformaticsInstitute },
+	{ label: 'Royal Society of Chemistry', href: constants.AssocLink.RoyalSocietyChemistry },
+	{ label: 'SDF Public Access UNIX System', href: constants.AssocLink.SDF },
+];
+const assocPrevTextLinks: { label: string; href: string }[] = [
+	{ label: 'Institute of Electrical and Electronics Engineers (IEEE)', href: constants.AssocLink.IEEE },
+	{ label: 'Chemical Institute of Canada', href: constants.AssocLink.ChemInst },
+	{ label: 'Forest City Archers', href: constants.AssocLink.FCArchers },
+];
+
+---
+
+<BaseLayout title="About | Gordon Stevens" description="About Gordon Stevens">
+	<div class="stack gap-20">
+		<main class="wrapper about">
+			<Hero
+				title="About"
+				tagline="Thanks for stopping by. Read below to learn more about myself and my background."
+			>
+				<img
+					width="1600"
+					height="1200"
+					src="/assets/pictures-gordonstevens/gordon-stevens-toronto-island-edge-IMG-20190812-WA0000.jpg"
+					alt="Gordon Stevens at the beautiful Toronto Island with the famous CN Tower in the background"
+					class=""
+				/>
+			</Hero>
+			<section>
+				<h2 class="section-title">Background</h2>
+				<div class="content">
+					<p>
+						I have trained in science, technology, and business with an appreciation for the arts. My focus is to
+						develop and enhance money making business objectives with the wise and timely use of electronics, software,
+						programming, internet technologies, vehicles, data analysis, artificial intelligence, and more.
+					</p> 
+					<p>
+						In science, I am trained in chemical and biological laboratory science, learning how our world works on a fundamental
+						level, and worked with researchers on mobile genetics in disrupting pathogenic rainwater organisms, as well as designing
+						and quantifying pilot-scale chemical reactors. I further specialised in extraction technology, such as extracting catnip
+						oil from the catnip plant, to further use as a safe mosquito repellant.
+					</p>
+					<br>
+					<p>
+						In technology I use software to define everything, automation in Microsoft Power Automate, software-defined radio,
+						Salesforce Tableau and Python for data analysis, and using computers for everything from study to creation. My current
+						area of research is how to build an effective, robust, and scalable automated greenhouse using Arduinos, Raspberry Pis,
+						and other consumer electronics and software to replace most of the current legacy, expensive hardware. Importantly,
+						after becoming an official software developer in post-secondary education, I decided to return to college and learn how
+						to effectively develop different types of AI systems.
+					</p>
+					<br>
+					<p>
+						None of this could be accomplished without grounding in reality, in business. I studied business development, supply
+						chain management, international business, community economic development, sustainability, change management, marketing,
+						and importantly leadership. I also love talking with entrepreneurs and investors!
+					</p>
+					<br>
+					<p>
+						My education and experience fit well together because I can worth technical and non-technical people, and in fact stakeholders
+						of all types. This has brought me to many work settings including fixing printers and teaching computer usage at all levels,
+						fixing domain controller issues, debugging E-mail routing and authenticity issues, data governance and management, regulatory
+						compliance for data and websites, setting up servers for various purposes including web services, VPNs, and hypervisors.
+						Then I'm off to a meeting to help an entrepreneur with a marketing campaign, and helping them build a more robust supply
+						chain risk management plan.
+					</p>
+					<br>
+					<p>
+						In my free time, I am outdoors flying a drone, improving my archery skills, camping, or taking a drive to somewhere new!
+						In the winter, I'm watching travel videos on YouTube, in the kitchen, researching something I can eventually publish,
+						playing with tech, or developing the next big thing!
+					</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Education</h2>
+				<div class="content">
+					{	gordoneducation.map((education:any) => (<li><EducationPreview education={education} /></li>)) }
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Cooperative Education Placements</h2>
+				<div class="content">
+					{	gordoncoopeducation.map((coopeducation:any) => (<li><CoopEducationPreview coopeducation={coopeducation} /></li>)) }
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Professional Development and Awards</h2>
+				<div class="content">
+					{	prodeveducation.map((prodev:any) => (<li><ProfessionalDevelopmentPreview prodev={prodev} /></li>)) }
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Workplace Experience</h2>
+				<div class="content">
+					{	employmentcollection.map((employed:any) => (<li><EmploymentPreview employed={employed} /></li>)) }
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Volunteer Experience</h2>
+				<div class="content">
+					{	volunteercollection.map((volunteered:any) => (<li><VolunteerPreview volunteered={volunteered} /></li>)) }
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Associations</h2>
+				<div class="content">
+					{	assocTextLinks.map(({ label, href }) => (<li><a href={href} target="_blank" aria-current={Astro.url.pathname === href}>{label}</a></li>)) }
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Previous Associations</h2>
+				<div class="content">
+					{	assocPrevTextLinks.map(({ label, href }) => (<li><a href={href} target="_blank" aria-current={Astro.url.pathname === href}>{label}</a></li>)) }
+				</div>
+			</section>
+		</main>
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.about {
+		display: flex;
+		flex-direction: column;
+		gap: 3.5rem;
+	}
+	img {
+		margin-top: 1.5rem;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-md);
+	}
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		color: var(--gray-200);
+	}
+
+	.section-title {
+		grid-column-start: 1;
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+	.content {
+		grid-column: 2 / 4;
+	}
+	.content :global(a) {
+		text-decoration: 1px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition);
+	}
+	.content :global(a:hover), .content :global(a:focus) {
+		text-decoration-color: currentColor;
+	}
+	@media (max-width: 49em) {
+		li { 
+			padding-bottom: 11px;
+		}
+	}
+	@media (min-width: 50em) {
+		.about {
+			display: grid;
+			grid-template-columns: 1fr 60% 1fr;
+		}
+		.about > :global(:first-child) {
+			grid-column-start: 2;
+		}
+		section {
+			display: contents;
+			font-size: var(--text-lg);
+		}
+		li { 
+			list-style: none;
+			padding-bottom: 1px;
+		}
+	}
+</style>

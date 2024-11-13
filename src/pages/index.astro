@@ -1,0 +1,113 @@
+---
+// Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
+import BaseLayout from '@layouts/BaseLayout.astro';
+import * as constants from '@styles/constants';
+
+// Component Imports
+import SectionProjects from '@components/SectionProjects.astro';
+import SectionRollsPills from '@components/SectionRolesPills.astro';
+import Hero from '@components/Hero.astro';
+
+// Page section components
+import Skills from '@components/Skills.astro';
+import ContactCTA from '@components/ContactCTA.astro';
+
+// Content Fetching: List four most recent work projects
+import { getCollection } from 'astro:content';
+const projects = (await getCollection('projects'))
+	.sort((a:any, b:any) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+	.slice(0, 4);
+
+// Full Astro Component Syntax: https://docs.astro.build/basics/astro-components/
+
+interface TreeSite {
+  treename: string;
+  treelink: string;
+}
+
+const linktree: TreeSite[] = [
+  { treename: 'LinkedIn', treelink: constants.SiteLink.LinkedIn },
+  { treename: 'Instagram', treelink: constants.SiteLink.Instagram },
+  { treename: 'X', treelink: constants.SiteLink.X },
+	{ treename: 'Invite Codes', treelink: constants.SiteLink.InvitationApp },
+	{ treename: 'Open Research ID (ORCiD)', treelink: constants.SiteLink.ORCID },
+	{ treename: 'GitHub', treelink: constants.SiteLink.GitHub },
+	{ treename: 'Kaggle', treelink: constants.SiteLink.Kaggle },
+	{ treename: 'Pinterest', treelink: constants.SiteLink.Pinterest },
+	{ treename: 'Dribbble', treelink: constants.SiteLink.Dribbble },
+	{ treename: 'Layers.TO', treelink: constants.SiteLink.LayersTO },
+	{ treename: 'SoundCloud', treelink: constants.SiteLink.SoundCloud },
+	{ treename: 'AudioTool', treelink: constants.SiteLink.AudioTool },
+	{ treename: 'Meetup.com', treelink: constants.SiteLink.MeetupCOM },
+	{ treename: 'Duolingo', treelink: constants.SiteLink.Duolingo },
+	{ treename: 'Credly', treelink: constants.SiteLink.Credly },
+	{ treename: 'Open Learn University Profile', treelink: constants.SiteLink.OpenLearnUniversity },
+];
+---
+
+<BaseLayout>
+	<div class="stack gap-20 lg:gap-48">
+		<div class="wrapper stack gap-8 lg:gap-20">
+			<header class="hero">
+				<Hero
+					title="Hello, my name is Gordon Stevens"
+					tagline="I work as a developer in business and software, especially in tech sectors. I craft effective brand experiences, develop strategies and solutions, fly drones, trade crypto and stocks."
+					align="start"
+				>
+					<SectionRollsPills />
+				</Hero>
+
+				<img
+					alt="Gordon Stevens smiling in a hoodie ready to eat Indian cuisine."
+					width="480"
+					height="620"
+					src="/assets/pictures-gordonstevens/gordon-stevens-chaat-n-dosaI-restaurant-brampton-IMG-20191031-WA0011.jpg"
+					class="gradient-border"
+				/>
+			</header>
+
+			<Skills />
+		</div>
+
+		<main class="wrapper stack gap-20 lg:gap-48">
+			{
+				((projects.length > 0) && (constants.SitePublish.ShowProjects)) ? (
+					<SectionProjects />
+				) : (
+					<p>&nbsp;</p>
+				)
+			}
+		</main>
+
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.hero {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 2rem;
+	}
+	.hero img {
+		aspect-ratio: 5 / 4;
+		object-fit: cover;
+		object-position: top;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-md);
+	}
+	@media (min-width: 50em) {
+		.hero {
+			display: grid;
+			grid-template-columns: 6fr 4fr;
+			padding-inline: 2.5rem;
+			gap: 3.75rem;
+		}
+		.hero img {
+			aspect-ratio: 3 / 4;
+			border-radius: 4.5rem;
+			object-fit: cover;
+		}
+	}
+</style>

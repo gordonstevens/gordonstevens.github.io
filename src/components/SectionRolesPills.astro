@@ -1,0 +1,33 @@
+---
+import PrincesseuhIcon from '@components/PrincesseuhIcon.astro';
+import Pill from '@components/Pill.astro';
+---
+
+<div class="roles">
+  <Pill><PrincesseuhIcon icon="code" size="1.33em" /> Software Development</Pill>
+  <Pill><PrincesseuhIcon icon="database" size="1.33em" /> AI and Data Analytics</Pill>
+  <Pill><PrincesseuhIcon icon="lightning-a" size="1.33em" /> Automation</Pill>
+</div>
+<div class="roles">
+  <Pill><PrincesseuhIcon icon="briefcase-metal" size="1.33em" /> International Business</Pill>					
+  <Pill><PrincesseuhIcon icon="building-office" size="1.33em" /> Business Analysis</Pill>
+  <Pill><PrincesseuhIcon icon="ranking" size="1.33em" /> Leadership</Pill>
+</div>	
+<div class="roles">
+  <Pill><PrincesseuhIcon icon="hurricane" size="1.33em" /> Entrepreneurship</Pill>
+  <Pill><PrincesseuhIcon icon="network" size="1.33em" /> Supply Chain</Pill>
+  <Pill><PrincesseuhIcon icon="chalkboard-teacher" size="1.33em" /> Education</Pill>
+</div>
+
+<style>
+	.roles {
+		display: none;
+	}
+	@media (min-width: 50em) {
+		.roles {
+			margin-top: 0.5rem;
+			display: flex;
+			gap: 0.5rem;
+		}
+	}
+</style>

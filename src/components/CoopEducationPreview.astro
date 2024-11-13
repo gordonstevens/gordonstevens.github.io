@@ -1,0 +1,9 @@
+---
+import type { CollectionEntry } from 'astro:content';
+interface Props { coopeducation: CollectionEntry<'coopeducation'>; }
+const { data, slug } = Astro.props.coopeducation;
+---
+
+<a href={`/coopeducation/${slug}`} aria-label={`View details for ${data.placementDescriptionLine}`}>
+	<span class="title">{data.placementName}: {data.placementDescriptionLine}</span>
+</a>

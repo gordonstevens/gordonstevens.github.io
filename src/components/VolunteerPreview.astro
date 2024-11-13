@@ -1,0 +1,18 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {	volunteered: CollectionEntry<'volunteer'>; }
+const { data, slug } = Astro.props.volunteered
+
+function isValidDate(date:any): boolean {	return date instanceof Date && !isNaN(date.getTime()); }
+function formatDateString(dateString: any): string { var date = new Date(dateString); // Adjust date to neutralize timezone effect
+	var localDate = new Date(date.getTime() + Math.abs(date.getTimezoneOffset() * 60000));
+	return localDate.toLocaleDateString('en-ca', { year: 'numeric', month: 'short' });
+}
+var dateline;
+dateline = (data.endDate && isValidDate(data.endDate)) ? formatDateString(data.startDate) + " - " + formatDateString(data.endDate) : formatDateString(data.startDate) + " - Present";
+---
+
+<a href={`/volunteer/${slug}`} aria-label={`View details for ${data.companyName}: ${data.positionTitle}`}>
+	<span class="title">{data.companyName}: {data.positionTitle}</span>
+</a>&nbsp;({`${dateline}`})

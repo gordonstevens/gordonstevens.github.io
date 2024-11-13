@@ -1,0 +1,13 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+	prodev: CollectionEntry<'professionaldevelopment'>;
+}
+
+const { data, slug } = Astro.props.prodev;
+---
+
+<a href={`/professionaldevelopment/${slug}`} aria-label={`View details for ${data.title}`}>
+	<span class="title">{data.school}: {data.program}</span>
+</a>

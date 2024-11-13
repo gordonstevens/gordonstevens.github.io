@@ -1,0 +1,76 @@
+---
+import * as constants from '@styles/constants';
+import PrincesseuhIcon from '@components/PrincesseuhIcon.astro';
+import ReturnToTop from '@components/ReturnToTop.astro';
+const currentYear = new Date().getFullYear();
+---
+
+<footer>
+	<div class="group">
+		<p>
+			Developed using <a target="_blank" href={constants.SiteLink.AstroStarlight}>Astro Starlight</a>
+			<br>at the <a target="_blank" href={constants.SiteLink.InternetDistillery}>Internet Distillery</a>
+			<br>(<a href={constants.SiteLink.GordonLambda}>&lambda;</a>) {currentYear} Gordon Stevens
+		</p>
+	</div>
+	<p class="socials">
+		<a href={constants.SiteLink.InvitationApp} target="_blank"> Invite Codes</a>
+		<a href={constants.SiteLink.ORCID} target="_blank"> ORCID</a>
+		<a href={constants.SiteLink.LinkedIn} target="_blank"> LinkedIn</a>
+		<a href={constants.SiteLink.LinkTree} target="_blank"> LinkTree</a>
+	</p>
+	<div class="group">
+		<p>
+			Member of <a target="_blank" href={constants.SiteLink.IETFInternetSociety}>IETF's Internet Society</a>, <a target="_blank" href={constants.SiteLink.IntlSocietyAutomation}>International Society of Automation</a>, and the <a target="_blank" href={constants.SiteLink.DPACanada}>Drone Pilot Association of Canada</a>.
+		</p>
+	</div>
+</footer>
+<ReturnToTop />
+
+<style>
+	footer {
+		display: flex;
+		flex-direction: column;
+		gap: 3rem;
+		margin-top: auto;
+		padding: 3rem 2rem 3rem;
+		text-align: center;
+		color: var(--gray-400);
+		font-size: var(--text-sm);
+	}
+	footer a {
+		color: var(--gray-400);
+		text-decoration: 1px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition);
+	}
+	footer a:hover,	footer a:focus {
+		text-decoration-color: currentColor;
+	}
+	.group {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+	.socials {
+		display: flex;
+		justify-content: center;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+	@media (min-width: 50em) {
+		footer {
+			flex-direction: row;
+			justify-content: space-between;
+			padding: 2.5rem 5rem;
+		}
+		.group {
+			flex-direction: row;
+			gap: 1rem;
+			flex-wrap: wrap;
+		}
+		.socials {
+			justify-content: flex-end;
+		}
+	}
+</style>

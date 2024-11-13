@@ -1,0 +1,43 @@
+---
+import * as constants from '@styles/constants';
+const { school, filedescriptor, filename, ...props } = Astro.props;
+var hrefBuilder = 'transcripts';
+switch (school) {
+  case 'rgu':
+    hrefBuilder = constants.COURSEDESC_SUBDIR_RGU;
+    break;
+  case 'seneca':
+    hrefBuilder = constants.COURSEDESC_SUBDIR_SENECA;
+    break;
+  case 'cencol':
+    hrefBuilder = constants.COURSEDESC_SUBDIR_CENCOL;
+    break;
+  case 'loyalist':
+    hrefBuilder = constants.COURSEDESC_SUBDIR_LOYALIST;
+    break;
+  case 'gbc':
+    hrefBuilder = constants.COURSEDESC_SUBDIR_GBC;
+    break;
+  case 'cbu':
+    hrefBuilder = constants.COURSEDESC_SUBDIR_CBU;
+    break;
+  case 'eneb':
+    hrefBuilder = constants.COURSEDESC_SUBDIR_ENEB;
+    break;
+  case 'linkedin':
+    hrefBuilder = constants.COURSEDESC_SUBDIR_LINKEDIN;
+    break;
+  case 'udemy':
+    hrefBuilder = constants.COURSEDESC_SUBDIR_UDEMY;
+    break;
+  case 'eduonix':
+    hrefBuilder = constants.COURSEDESC_SUBDIR_EDUONIX;
+    break;
+  default:
+    hrefBuilder = '';
+    break;
+}
+hrefBuilder = constants.COURSEDESC_DIR_URL + hrefBuilder + filename;
+---
+
+<a href={hrefBuilder} target="_blank" {...props}>{filedescriptor}</a>&nbsp;

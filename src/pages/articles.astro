@@ -1,0 +1,45 @@
+---
+import * as constants from '@styles/constants';
+import ArticleLayout from '@layouts/ArticleLayout.astro';
+
+import ContactCTA from '@components/ContactCTA.astro';
+import Hero from '@components/Hero.astro';
+import Grid from '@components/Grid.astro';
+
+import ArticlePreview from '@components/ArticlePreview.astro';
+import { getCollection } from 'astro:content';
+const articles = (await getCollection('articles')).sort(
+	(a:any, b:any) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
+);
+---
+
+<ArticleLayout
+	title="Articles | Gordon Stevens"
+	description="Learn about some of Gordon Stevens' articles."
+>
+	<div class="stack gap-20">
+		<main class="wrapper stack gap-8">
+			<Hero
+				title="Articles"
+				tagline="These are my articles, long-form notes."
+				align="start"
+			/>
+			{
+				((articles.length > 0) && (constants.SitePublish.ShowArticles)) ? (
+					<Grid variant="offset">
+						{
+							articles.map((article:any) => (
+								<li>
+									<ArticlePreview article={article} />
+								</li>
+							))
+						}
+					</Grid>
+				) : (
+					<p>Sorry, articles are not available at this time.</p>
+				)
+			}
+		</main>
+		<ContactCTA />
+	</div>
+</ArticleLayout>

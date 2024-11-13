@@ -1,0 +1,46 @@
+---
+import * as constants from '@styles/constants';
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+import ContactCTA from '@components/ContactCTA.astro';
+import Hero from '@components/Hero.astro';
+import Grid from '@components/Grid.astro';
+
+import ProjectPreview from '@components/ProjectPreview.astro';
+
+import { getCollection } from 'astro:content';
+const projects = (await getCollection('projects')).sort(
+	(a:any, b:any) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
+);
+---
+
+<BaseLayout
+	title="Projects | Gordon Stevens"
+	description="Learn about some of Gordon Stevens' projects"
+>
+	<div class="stack gap-20">
+		<main class="wrapper stack gap-8">
+			<Hero
+				title="Projects"
+				tagline="See some of my projects below to get an idea of my past experience."
+				align="start"
+			/>
+				{
+					((projects.length > 0) && (constants.SitePublish.ShowProjects)) ? (
+						<Grid variant="offset">
+							{
+								projects.map((project:any) => (
+									<li>
+										<ProjectPreview project={project} />
+									</li>
+								))
+							}
+						</Grid>
+					) : (
+						<p>Sorry, projects are not available at this time.</p>
+					)
+				}
+		</main>
+		<ContactCTA />
+	</div>
+</BaseLayout>
